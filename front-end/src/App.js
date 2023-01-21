@@ -1,7 +1,7 @@
 
 function App() {
   return (
-   <div className="container">Hello world!</div>
+   <div className="container">bootstrap works!</div>
   );
 }
 
