@@ -1,7 +1,13 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
 
 function App() {
   return (
-   <div className="container">bootstrap works!</div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
   );
 }
 
