@@ -1,0 +1,11 @@
+.sideBarContainer {
+    width: 300px;
+    background-color: rgb(143, 188, 240);
+    height: 90vh;
+    padding: 10px;
+}
+
+.item {
+    margin-bottom: 20px !important;
+    text-decoration: none;
+}
