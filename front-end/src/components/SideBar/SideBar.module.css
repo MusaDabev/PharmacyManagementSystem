@@ -1,8 +1,12 @@
 .sideBarContainer {
-    width: 300px;
+    width: 270px;
     background-color: rgb(143, 188, 240);
-    height: 90vh;
+    min-height: 100vh;
     padding: 10px;
+}
+
+.sideBar {
+    background-color: rgb(143, 188, 240);
 }
 
 .item {

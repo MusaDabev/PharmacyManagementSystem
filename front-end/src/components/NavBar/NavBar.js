@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./NavBar.module.css"
 
 function NavBar() {
   return (
-    <nav class="navbar bg-light">
+    <nav class={`navbar ${styles.navBar}`}>
       <div class="container-fluid">
         <p class="navbar-brand">
           PharmacyMS
