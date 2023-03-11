@@ -6,6 +6,7 @@ import { FcExpired } from "react-icons/fc";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { TbShoppingCartDiscount, TbReportSearch } from "react-icons/tb";
 import styles from "./Dashboard.module.css";
+import { Link } from "react-router-dom";
 function Dashboard() {
   return (
     <div className="container w-100 ms-3 mt-3">
@@ -30,8 +31,8 @@ function Dashboard() {
         </div>
         <div className="col">
           <div className={`p-2 ${styles.category}`}>
-            <BsFillPersonPlusFill style={{ fontSize: "3rem" }} /> Добави
-            Служител
+            <BsFillPersonPlusFill style={{ fontSize: "3rem" }} /> <Link to={"/add-employee"}> Добави
+            Служител </Link>
           </div>
         </div>
         <div className="col">
