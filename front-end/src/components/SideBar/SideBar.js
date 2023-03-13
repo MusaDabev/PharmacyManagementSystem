@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaFileInvoiceDollar } from "react-icons/fa";
+import { GrUserWorker } from "react-icons/gr";
+import { CiPill } from "react-icons/ci";
+import { AiOutlineStock } from "react-icons/ai";
 import styles from "./SideBar.module.css";
 
 function SideBar() {
@@ -34,7 +38,7 @@ function SideBar() {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 align-middle "
                 >
-                  <i className="fs-4 bi-bootstrap"></i>{" "}
+                  <FaFileInvoiceDollar size={"1.5rem"} />
                   <span className="ms-1 d-none d-sm-inline">Фактура</span>
                 </a>
                 <ul
@@ -64,7 +68,7 @@ function SideBar() {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 align-middle "
                 >
-                  <i className="fs-4 bi-bootstrap"></i>{" "}
+                  <GrUserWorker size={"1.5rem"} />{" "}
                   <span className="ms-1 d-none d-sm-inline">Служител</span>
                 </a>
                 <ul
@@ -88,7 +92,7 @@ function SideBar() {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 align-middle"
                 >
-                  <i className="fs-4 bi-grid"></i>{" "}
+                  <CiPill size={"1.5rem"} />{" "}
                   <span className="ms-1 d-none d-sm-inline">Лекарство</span>{" "}
                 </a>
                 <ul
@@ -176,7 +180,7 @@ function SideBar() {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 align-middle"
                 >
-                  <i className="fs-4 bi-grid"></i>{" "}
+                  <AiOutlineStock size={"1.5rem"} />{" "}
                   <span className="ms-1 d-none d-sm-inline">Наличност</span>{" "}
                 </a>
                 <ul
