@@ -63,7 +63,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-4">
         <div className="col">
           <LineChart />
         </div>
