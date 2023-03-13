@@ -3,9 +3,9 @@ import styles from "./NavBar.module.css"
 
 function NavBar() {
   return (
-    <nav class={`navbar ${styles.navBar}`}>
-      <div class="container-fluid">
-        <p class="navbar-brand">
+    <nav className={`navbar ${styles.navBar}`}>
+      <div className="container-fluid">
+        <p className="navbar-brand">
           PharmacyMS
         </p>
         <p>Добре дошли!</p>

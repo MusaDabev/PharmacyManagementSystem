@@ -26,7 +26,7 @@ function Dashboard() {
         <div className="col">
           <div className={`p-2 ${styles.category}`}>
             {" "}
-            <GiMedicines style={{ fontSize: "3rem" }} /> Добави Лекарство
+            <GiMedicines style={{ fontSize: "3rem" }} /> <Link to={"/add-medicine"}> Добави Лекарство</Link>
           </div>
         </div>
         <div className="col">
