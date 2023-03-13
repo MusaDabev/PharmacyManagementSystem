@@ -7,6 +7,8 @@ import { MdOutlinePostAdd } from "react-icons/md";
 import { TbShoppingCartDiscount, TbReportSearch } from "react-icons/tb";
 import styles from "./Dashboard.module.css";
 import { Link } from "react-router-dom";
+import LineChart from "../../components/Charts/LineChart/LineChart";
+import DonutChart from "../../components/Charts/LineChart/DonutChart";
 function Dashboard() {
   return (
     <div className="container w-100 ms-3 mt-3">
@@ -59,6 +61,14 @@ function Dashboard() {
             <TbReportSearch style={{ fontSize: "3rem" }} />
             Отчет
           </div>
+        </div>
+      </div>
+      <div className="row mt-4">
+        <div className="col">
+          <LineChart />
+        </div>
+        <div className="col">
+          <DonutChart />
         </div>
       </div>
     </div>
