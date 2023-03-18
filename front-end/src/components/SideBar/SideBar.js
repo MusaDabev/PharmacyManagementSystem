@@ -116,6 +116,14 @@ function SideBar() {
                       </span>{" "}
                     </a>
                   </li>
+                  <li>
+                    <Link to={"/sell-medicine"} className="nav-link px-0">
+                      {" "}
+                      <span className="d-none d-sm-inline">
+                        Продай лекарство
+                      </span>{" "}
+                    </Link>
+                  </li>
                 </ul>
               </li>
               <li>
