@@ -7,10 +7,10 @@ function SearchResultsTable({ searchResult, handleSelectedMedicine }) {
     <table className="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Generic Name</th>
-          <th scope="col">Brand Name</th>
+        <th scope="col">Генерично лекарство</th>
+          <th scope="col">Търговско име</th>
           <th scope="col">MeasurementUnit</th>
-          <th scope="col">Form</th>
+          <th scope="col">Форма</th>
         </tr>
       </thead>
       <tbody>

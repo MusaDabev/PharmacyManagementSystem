@@ -15,12 +15,23 @@ function SellMedicine() {
   };
 
   const handleAddCartItem = (item, units) => {
-    setCartItems([...cartItems, {...item, units: units}]);
+    // check if the item already exists in the cart
+    const existingItem = cartItems.find((i) => i.id === item.id);
+    if (existingItem) {
+      // if the item already exists, update the quantity
+      const updatedItems = cartItems.map((i) => {
+       return i.id === item.id ? { ...i, units: i.units + 1 } : i;
+      });
+      setCartItems(updatedItems);
+    } else {
+      // if the item does not exist, add it to the cart with a quantity
+      setCartItems([...cartItems, { ...item, units: units }]);
+    }
   };
 
   const handleNumberOfUnitsChange = (e) => {
     setNumberOfUnits(e.target.value);
-  }
+  };
   return (
     <>
       <NavBar />
@@ -39,7 +50,10 @@ function SellMedicine() {
             />
           </div>
           <div className="row">
-            <MedicinesCart cartItems={cartItems} numberOfUnits={numberOfUnits} />
+            <MedicinesCart
+              cartItems={cartItems}
+              numberOfUnits={numberOfUnits}
+            />
           </div>
         </div>
       </div>
