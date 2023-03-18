@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchResultsTable from "../SearchResultsTable/SearchResultsTable";
+import styles from "./SearchBar.module.css";
 
 function SearchBar() {
   const [searchValue, setSearchValue] = useState("");
@@ -19,28 +20,38 @@ function SearchBar() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:5000/medicines')
+    fetch("http://localhost:5000/medicines")
       .then((response) => response.json())
       .then((data) => {
-        setJsonData(data)})
+        setJsonData(data);
+      })
       .catch((error) => console.error(error));
   }, []);
 
   return (
     <div>
-      <input
-        type="text"
-        value={searchValue}
-        onChange={handleInputChange}
-        placeholder="Enter keyword to search"
-      />
-      <button type="button" onClick={handleSearchClick}>
-        Search
-      </button>
+      <form className="d-flex">
+        <input
+          id="searchInput"
+          className={`form-control me-1 ${styles.searchInput}`}
+          type="text"
+          value={searchValue}
+          onChange={handleInputChange}
+          placeholder="Търси"
+        />
+        <button
+          type="button"
+          className="btn btn-outline-primary"
+          onClick={handleSearchClick}
+        >
+          Search
+        </button>
+      </form>
+
       {/* Display the search results */}
-      <ul>
+      <ul className="mt-2">
         {searchResult.map((result) => (
-            <SearchResultsTable result={result} />
+          <SearchResultsTable result={result} />
         ))}
       </ul>
     </div>
