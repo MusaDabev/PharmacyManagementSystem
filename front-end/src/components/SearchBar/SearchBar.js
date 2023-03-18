@@ -45,7 +45,7 @@ function SearchBar({ handleSelectedMedicine }) {
           className="btn btn-outline-primary"
           onClick={handleSearchClick}
         >
-          Search
+          Търси
         </button>
       </form>
 
