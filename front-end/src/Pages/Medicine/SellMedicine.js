@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import SellMedicineForm from "../../components/SellMedicineForm/SellMedicineForm";
 
 function SellMedicine() {
+  const [selectedMedicine, setSelectedMedicine] = useState({});
+
+  const handleSelectedMedicine = (medicine) => {
+    setSelectedMedicine(medicine);
+    console.log(selectedMedicine);
+  };
   return (
     <>
       <NavBar />
-      <div className="row">Продай лекарство</div>
-      <div className="row">
+      <div className="row p-3">Продай лекарство</div>
+      <div className="row p-3">
         <div className="col">
-          <SearchBar />
+          <SearchBar handleSelectedMedicine={handleSelectedMedicine}/>
         </div>
         <div className="col">
           <div className="row">
-            <div className="col">1</div>
-            <div className="col">2</div>
+            <SellMedicineForm medicine={selectedMedicine} />
           </div>
           <div className="row"> Количка </div>
         </div>

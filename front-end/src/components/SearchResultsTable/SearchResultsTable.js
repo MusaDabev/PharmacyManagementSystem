@@ -1,8 +1,10 @@
 import React from "react";
+import styles from "./SearchResultsTable.module.css";
 
-function SearchResultsTable({ result }) {
+function SearchResultsTable({ searchResult, handleSelectedMedicine }) {
+
   return (
-    <table className="table table-primary table-striped">
+    <table className="table table-striped">
       <thead>
         <tr>
           <th scope="col">Generic Name</th>
@@ -12,12 +14,14 @@ function SearchResultsTable({ result }) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{result.genericName}</td>
-          <td>{result.brandName}</td>
-          <td>{result.measurementUnit}</td>
-          <td>{result.form}</td>
-        </tr>
+        {searchResult.map((result) => (
+          <tr key={result.id} onClick={() => handleSelectedMedicine(result)}>
+            <td>{result.genericName}</td>
+            <td>{result.brandName}</td>
+            <td>{result.measurementUnit}</td>
+            <td>{result.form}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
