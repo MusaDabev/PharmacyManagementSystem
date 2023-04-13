@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, json } from "react-router-dom";
 import Invoice from "./components/Invoice/Invoice";
 import NavBar from "./components/NavBar/NavBar";
-import TodayReport from "./components/TodayReport/TodayReport";
+import TodayReport from "./Pages/TodayReport/TodayReport";
 import AddCompany from "./Pages/Company/AddCompany/AddCompany";
 import ManageCompanies from "./Pages/Company/ManageCompanies/ManageCompanies";
 import Discount from "./Pages/Discount/Discount";
