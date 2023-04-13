@@ -6,6 +6,7 @@ function LineChart() {
     <div className="app">
       <div className="row">
         <div className="mixed-chart">
+          <div className="ms-2">Седмичен отчет</div>
           <Chart
             options={lineChartData.options}
             series={lineChartData.series}

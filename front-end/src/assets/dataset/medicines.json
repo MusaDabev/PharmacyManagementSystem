@@ -1,0 +1,234 @@
+{
+    "medicines": [
+      {
+        "id": 1,
+        "name": "Aspirin",
+        "genericName": "Acetylsalicylic Acid",
+        "price": 5.99,
+        "quantity": 20,
+        "milligrams": 100,
+        "discount": true,
+        "discountPrice": 5.20
+
+      },
+      {
+        "id": 2,
+        "name": "Tylenol",
+        "genericName": "Acetaminophen",
+        "price": 7.49,
+        "quantity": 15,
+        "milligrams": 500,
+        "discount": false
+      },
+      {
+        "id": 3,
+        "name": "Advil",
+        "genericName": "Ibuprofen",
+        "price": 8.99,
+        "quantity": 10,
+        "milligrams": 200,
+        "discount": false
+      },
+      {
+        "id": 4,
+        "name": "Allegra",
+        "genericName": "Fexofenadine",
+        "price": 12.99,
+        "quantity": 30,
+        "milligrams": 180,
+        "discount": false
+      },
+      {
+        "id": 5,
+        "name": "Benadryl",
+        "genericName": "Diphenhydramine",
+        "price": 6.99,
+        "quantity": 25,
+        "milligrams": 25,
+        "discount": false
+      },
+      {
+        "id": 6,
+        "name": "Zantac",
+        "genericName": "Ranitidine",
+        "price": 9.99,
+        "quantity": 40,
+        "milligrams": 150,
+        "discount": false
+      },
+      {
+        "id": 7,
+        "name": "Pepto Bismol",
+        "genericName": "Bismuth Subsalicylate",
+        "price": 6.49,
+        "quantity": 10,
+        "milligrams": 262,
+        "discount": false
+      },
+      {
+        "id": 8,
+        "name": "Mucinex",
+        "genericName": "Guaifenesin",
+        "price": 14.99,
+        "quantity": 20,
+        "milligrams": 600,
+        "discount": false
+      },
+      {
+        "id": 9,
+        "name": "Sudafed",
+        "genericName": "Pseudoephedrine",
+        "price": 11.99,
+        "quantity": 30,
+        "milligrams": 30,
+        "discount": true,
+        "discountPrice": 10.99
+      },
+      {
+        "id": 10,
+        "name": "Nasacort",
+        "genericName": "Triamcinolone",
+        "price": 19.99,
+        "quantity": 35,
+        "milligrams": 55,
+        "discount": false
+      },
+      {
+        "id": 11,
+        "name": "Lipitor",
+        "genericName": "Atorvastatin",
+        "price": 23.99,
+        "quantity": 30,
+        "milligrams": 40,
+        "discount": false
+        },
+        {
+        "id": 12,
+        "name": "Crestor",
+        "genericName": "Rosuvastatin",
+        "price": 25.99,
+        "quantity": 28,
+        "milligrams": 20,
+        "discount": false
+        },
+        {
+        "id": 13,
+        "name": "Metformin",
+        "genericName": "Metformin Hydrochloride",
+        "price": 9.99,
+        "quantity": 90,
+        "milligrams": 500,
+        "discount": false
+        },
+        {
+        "id": 14,
+        "name": "Levothyroxine",
+        "genericName": "Levothyroxine Sodium",
+        "price": 12.99,
+        "quantity": 60,
+        "milligrams": 100,
+        "discount": false
+        },
+        {
+        "id": 15,
+        "name": "Flomax",
+        "genericName": "Tamsulosin",
+        "price": 21.99,
+        "quantity": 30,
+        "milligrams": 0.4,
+        "discount": true,
+        "discountPrice": 19.80
+        },
+        {
+        "id": 16,
+        "name": "Nexium",
+        "genericName": "Esomeprazole",
+        "price": 18.99,
+        "quantity": 14,
+        "milligrams": 20,
+        "discount": false
+        },
+        {
+        "id": 17,
+        "name": "Lisinopril",
+        "genericName": "Lisinopril",
+        "price": 6.99,
+        "quantity": 90,
+        "milligrams": 10,
+        "discount": false
+        },
+        {
+            "id": 18,
+            "name": "Prozac",
+            "genericName": "Fluoxetine",
+            "price": 14.99,
+            "quantity": 30,
+            "milligrams": 20,
+            "discount": false
+            },
+            {
+            "id": 19,
+            "name": "Zoloft",
+            "genericName": "Sertraline",
+            "price": 17.99,
+            "quantity": 28,
+            "milligrams": 50,
+            "discount": false
+            },
+            {
+            "id": 20,
+            "name": "Celexa",
+            "genericName": "Citalopram",
+            "price": 12.49,
+            "quantity": 20,
+            "milligrams": 40,
+            "discount": false
+            },
+            {
+            "id": 21,
+            "name": "Lexapro",
+            "genericName": "Escitalopram",
+            "price": 19.99,
+            "quantity": 30,
+            "milligrams": 10,
+            "discount": false
+            },
+            {
+            "id": 22,
+            "name": "Xanax",
+            "genericName": "Alprazolam",
+            "price": 24.99,
+            "quantity": 20,
+            "milligrams": 1,
+            "discount": false
+            },
+            {
+            "id": 23,
+            "name": "Ativan",
+            "genericName": "Lorazepam",
+            "price": 16.99,
+            "quantity": 30,
+            "milligrams": 2,
+            "discount": true,
+            "discountPrice": 15.00
+            },
+            {
+            "id": 24,
+            "name": "Adderall",
+            "genericName": "Amphetamine and Dextroamphetamine",
+            "price": 29.99,
+            "quantity": 30,
+            "milligrams": 10,
+            "discount": false
+            },
+            {
+            "id": 25,
+            "name": "Ritalin",
+            "genericName": "Methylphenidate",
+            "price": 19.99,
+            "quantity": 60,
+            "milligrams": 10,
+            "discount": false
+            }
+    ]
+}
