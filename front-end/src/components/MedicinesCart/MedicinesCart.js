@@ -25,7 +25,8 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
     dispatch(
       addInvoice({
         id: date,
-        cartItems: [...cartItems]
+        cartItems: [...cartItems],
+        total: totalPrice
   })
     );
 
