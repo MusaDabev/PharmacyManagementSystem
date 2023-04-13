@@ -1,0 +1,7 @@
+.rowBackgroundColor {
+    background-color: black !important;
+}
+
+td {
+    cursor: pointer;
+}

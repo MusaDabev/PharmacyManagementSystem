@@ -1,14 +1,16 @@
-import NavBar from "../../components/NavBar/NavBar";
+import Navigation from "../../components/Navigation/Navigation";
 import SideBar from "../../components/SideBar/SideBar";
 import Dashboard from "../Dashboard/Dashboard";
 
 function Home() {
   return (
     <>
-      <NavBar />
       <div className="d-flex">
         <SideBar />
-        <Dashboard />
+        <div className="d-flex flex-column">
+          <Navigation />
+          <Dashboard />
+        </div>
       </div>
     </>
   );
