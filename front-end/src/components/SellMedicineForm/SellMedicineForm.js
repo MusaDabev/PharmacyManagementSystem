@@ -1,4 +1,5 @@
 import React from "react";
+import {AiOutlineShoppingCart} from 'react-icons/ai';
 
 function SellMedicineForm({
   medicine,
@@ -6,8 +7,9 @@ function SellMedicineForm({
   numberOfUnits,
   handleNumberOfUnitsChange,
 }) {
+  let totalPrice = medicine.price * numberOfUnits;
   return (
-    <>
+    <div className="d-flex flex-column">
       <form>
         <div className="row">
           <div className="col">
@@ -19,7 +21,7 @@ function SellMedicineForm({
                 type="number"
                 className="form-control"
                 id="medicineID"
-                value={medicine.id}
+                placeholder={medicine.id}
               />
             </div>
             <div className="mb-3">
@@ -30,7 +32,7 @@ function SellMedicineForm({
                 type="text"
                 className="form-control"
                 id="genericName"
-                value={medicine.genericName}
+                placeholder={medicine.genericName}
               />
             </div>
             <div className="mb-3">
@@ -41,7 +43,7 @@ function SellMedicineForm({
                 type="text"
                 className="form-control"
                 id="brandName"
-                value={medicine.brandName}
+                placeholder={medicine.name}
               />
             </div>
           </div>
@@ -50,7 +52,12 @@ function SellMedicineForm({
               <label htmlFor="pricePerUnit" className="form-label">
                 Цена за брой
               </label>
-              <input type="number" className="form-control" id="pricePerUnit" />
+              <input
+                type="number"
+                className="form-control"
+                id="pricePerUnit"
+                placeholder={medicine.price}
+              />
             </div>
             <div className="mb-3">
               <label htmlFor="unit" className="form-label">
@@ -60,7 +67,7 @@ function SellMedicineForm({
                 type="number"
                 className="form-control"
                 id="unit"
-                value={medicine.id && numberOfUnits}
+                value={numberOfUnits}
                 onChange={handleNumberOfUnitsChange}
               />
             </div>
@@ -68,20 +75,25 @@ function SellMedicineForm({
               <label htmlFor="totalPrice" className="form-label">
                 Обща цена
               </label>
-              <input type="number" className="form-control" id="totalPrice" />
+              <input
+                type="number"
+                className="form-control"
+                id="totalPrice"
+                placeholder={totalPrice > 0 ? totalPrice : ""}
+              />
             </div>
           </div>
         </div>
       </form>
-      <div className="row">
+      <div className="ms-auto">
         <button
           className="btn btn-primary"
           onClick={() => handleAddCartItem(medicine, numberOfUnits)}
         >
-          Добави в Количка
+         <AiOutlineShoppingCart size="1.5rem" /> Добави в Количка
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

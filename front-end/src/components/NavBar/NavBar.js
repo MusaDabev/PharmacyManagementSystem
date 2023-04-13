@@ -1,15 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./NavBar.module.css"
+import styles from "./NavBar.module.css";
 
-function NavBar() {
+function NavBar({ user }) {
   return (
     <nav className={`navbar ${styles.navBar}`}>
       <div className="container-fluid">
-        <Link to={"/"} className="navbar-brand">
+        <Link to={"/"} className="navbar-brand text-white">
           PharmacyMS
         </Link>
-        <p>Добре дошли!</p>
+        {user ? (
+          <p>Добре дошли, {user.firstName}!</p>
+        ) : (
+          <Link to={"/login"} className="text-white text-decoration-none">
+            Вход
+          </Link>
+        )}
       </div>
     </nav>
   );

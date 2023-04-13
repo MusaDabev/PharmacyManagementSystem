@@ -1,32 +1,23 @@
 import React, { useState } from "react";
 import MedicinesCart from "../../components/MedicinesCart/MedicinesCart";
-import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SellMedicineForm from "../../components/SellMedicineForm/SellMedicineForm";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../../redux/slices/cartSlice";
 
-function SellMedicine() {
+function SellMedicine({ jsonData, setCartItems, setInvoices }) {
   const [selectedMedicine, setSelectedMedicine] = useState({});
-  const [cartItems, setCartItems] = useState([]);
   const [numberOfUnits, setNumberOfUnits] = useState(1);
+
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart);
 
   const handleSelectedMedicine = (medicine) => {
     setSelectedMedicine(medicine);
-    console.log(selectedMedicine);
   };
 
-  const handleAddCartItem = (item, units) => {
-    // check if the item already exists in the cart
-    const existingItem = cartItems.find((i) => i.id === item.id);
-    if (existingItem) {
-      // if the item already exists, update the quantity
-      const updatedItems = cartItems.map((i) => {
-       return i.id === item.id ? { ...i, units: i.units + 1 } : i;
-      });
-      setCartItems(updatedItems);
-    } else {
-      // if the item does not exist, add it to the cart with a quantity
-      setCartItems([...cartItems, { ...item, units: units }]);
-    }
+  const handleAddCartItem = (item) => {
+    dispatch(addItem({ ...item, units: numberOfUnits }));
   };
 
   const handleNumberOfUnitsChange = (e) => {
@@ -34,11 +25,13 @@ function SellMedicine() {
   };
   return (
     <>
-      <NavBar />
       <div className="row p-3">Продай лекарство</div>
       <div className="row p-3">
         <div className="col">
-          <SearchBar handleSelectedMedicine={handleSelectedMedicine} />
+          <SearchBar
+            jsonData={jsonData}
+            handleSelectedMedicine={handleSelectedMedicine}
+          />
         </div>
         <div className="col">
           <div className="row">
@@ -53,6 +46,8 @@ function SellMedicine() {
             <MedicinesCart
               cartItems={cartItems}
               numberOfUnits={numberOfUnits}
+              setInvoices={setInvoices}
+              setSelectedMedicine={setSelectedMedicine}
             />
           </div>
         </div>
