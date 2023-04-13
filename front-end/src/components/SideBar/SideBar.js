@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaFileInvoiceDollar } from "react-icons/fa";
-import { GrDeliver } from "react-icons/gr";
 import { CiPill } from "react-icons/ci";
 import { AiOutlineStock } from "react-icons/ai";
 import { TbShoppingCartDiscount } from "react-icons/tb";
@@ -166,12 +165,12 @@ function SideBar() {
                   data-bs-parent="#menu"
                 >
                   <li className="w-100">
-                    <a href="#" className="nav-link px-0">
+                    <Link to="/add-supplier" className="nav-link px-0">
                       {" "}
                       <span className="d-none d-sm-inline">
                         Добави доставчик
                       </span>{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li className="w-100">
                     <a href="#" className="nav-link px-0">

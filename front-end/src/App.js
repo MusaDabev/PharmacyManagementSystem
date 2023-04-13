@@ -14,6 +14,7 @@ import AddMedicine from "./Pages/Medicine/AddMedicine";
 import MedicinesInStock from "./Pages/Medicine/MedicinesInStock";
 import SellMedicine from "./Pages/Medicine/SellMedicine";
 import Stock from "./Pages/Stock/Stock";
+import AddSupplier from "./Pages/AddSupplier/AddSupplier";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/add-medicine" element={<AddMedicine />} />
         <Route path="/add-company" element={<AddCompany />} />
         <Route path="/manage-companies" element={<ManageCompanies />} />
+        <Route path="/add-supplier" element={<AddSupplier />} />
         <Route
           path="/sell-medicine"
           element={
