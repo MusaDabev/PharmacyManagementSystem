@@ -173,12 +173,12 @@ function SideBar() {
                     </Link>
                   </li>
                   <li className="w-100">
-                    <a href="#" className="nav-link px-0">
+                    <Link to="/manage-suppliers" className="nav-link px-0">
                       {" "}
                       <span className="d-none d-sm-inline">
                         Управление на доставчици
                       </span>{" "}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
