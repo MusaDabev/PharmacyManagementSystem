@@ -15,6 +15,7 @@ import MedicinesInStock from "./Pages/Medicine/MedicinesInStock";
 import SellMedicine from "./Pages/Medicine/SellMedicine";
 import Stock from "./Pages/Stock/Stock";
 import AddSupplier from "./Pages/AddSupplier/AddSupplier";
+import ManageSuppliers from "./Pages/ManageSuppliers/ManageSuppliers";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -45,6 +46,7 @@ function App() {
         <Route path="/add-company" element={<AddCompany />} />
         <Route path="/manage-companies" element={<ManageCompanies />} />
         <Route path="/add-supplier" element={<AddSupplier />} />
+        <Route path="/manage-suppliers" element={<ManageSuppliers />} />
         <Route
           path="/sell-medicine"
           element={
@@ -72,8 +74,8 @@ function App() {
           element={<MedicinesInStock medicines={jsonData} />}
         />
         <Route path="/stock" element={<Stock />} />
-         <Route path="/discounts" element={<Discount />} />
-         <Route path="/today-report" element={<TodayReport />} />
+        <Route path="/discounts" element={<Discount />} />
+        <Route path="/today-report" element={<TodayReport />} />
       </Routes>
     </>
   );

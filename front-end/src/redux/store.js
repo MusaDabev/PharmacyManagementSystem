@@ -4,6 +4,7 @@ import employeesReducer from "../redux/slices/employeesSlice";
 import companiesReducer from "./slices/companiesSlice";
 import stockReducer from "./slices/stockSlice";
 import invoiceReducer from "./slices/invoiceSlice";
+import suppliersReducer from "./slices/suppliersSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     companies: companiesReducer,
     stock: stockReducer,
     invoices: invoiceReducer,
+    suppliers: suppliersReducer,
   },
 });
