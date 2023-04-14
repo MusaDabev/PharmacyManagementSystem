@@ -1,15 +1,16 @@
 import React, { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addInvoice, } from "../../redux/slices/invoiceSlice";
+import { addInvoice } from "../../redux/slices/invoiceSlice";
 import { addStock } from "../../redux/slices/stockSlice";
 import Modal from "../Modal/Modal";
 import { InvoiceContext } from "../../context/InvoiceContext";
+import axios from "axios";
 
 function MedicinesCart({ setInvoices, setSelectedMedicine }) {
   const cartItems = useSelector((state) => state.cart);
   const invoices = useSelector((state) => state.invoices);
   const dispatch = useDispatch();
-  const {showInvoiceButton, toggleShowButton} = useContext(InvoiceContext);
+  const { showInvoiceButton, toggleShowButton } = useContext(InvoiceContext);
   const date = Date.now();
 
   const totalPrice = cartItems.reduce((sum, item) => {
@@ -26,9 +27,15 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
       addInvoice({
         id: date,
         cartItems: [...cartItems],
-        total: totalPrice
-  })
+        total: totalPrice,
+      })
     );
+    // sell invoice in database
+    axios.post("http://localhost:8080/invoices", {
+      amount: totalPrice,
+      invoiceDate: new Date(),
+      // items: [...cartItems],
+    }).catch((error) => console.error(error));
 
     // reset form
     setSelectedMedicine({});
@@ -37,8 +44,8 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
     toggleShowButton(true);
   };
   useEffect(() => {
-    console.log(invoices)
-  })
+    console.log(invoices);
+  });
   return (
     <>
       <table className="table table-striped">

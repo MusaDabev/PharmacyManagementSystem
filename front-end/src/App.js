@@ -16,6 +16,7 @@ import SellMedicine from "./Pages/Medicine/SellMedicine";
 import Stock from "./Pages/Stock/Stock";
 import AddSupplier from "./Pages/AddSupplier/AddSupplier";
 import ManageSuppliers from "./Pages/ManageSuppliers/ManageSuppliers";
+import ManageInvoices from "./Pages/Invoices/ManageInvoices";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -47,6 +48,7 @@ function App() {
         <Route path="/manage-companies" element={<ManageCompanies />} />
         <Route path="/add-supplier" element={<AddSupplier />} />
         <Route path="/manage-suppliers" element={<ManageSuppliers />} />
+        <Route path="/manage-invoices" element={<ManageInvoices />} />
         <Route
           path="/sell-medicine"
           element={

@@ -1,4 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const fetchInvoices = createAsyncThunk(
+  'invoices/fetchInvoices',
+  async () => {
+    const response = await axios.get('http://localhost:8080/invoices');
+    return response.data;
+  }
+);
 
 const invoicesSlice = createSlice({
   name: "invoices",
@@ -16,6 +25,15 @@ const invoicesSlice = createSlice({
         state.splice(index, 1);
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchInvoices.fulfilled, (state, action) => {
+        return action.payload;
+      })
+      .addCase(fetchInvoices.rejected, (state, action) => {
+        console.error(action.error.message);
+      });
   },
 });
 

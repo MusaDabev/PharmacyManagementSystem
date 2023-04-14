@@ -56,12 +56,12 @@ function SideBar() {
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="nav-link px-0">
+                    <Link to="/manage-invoices" className="nav-link px-0">
                       {" "}
                       <span className="d-none d-sm-inline">
                         Управление на фактури
                       </span>{" "}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
