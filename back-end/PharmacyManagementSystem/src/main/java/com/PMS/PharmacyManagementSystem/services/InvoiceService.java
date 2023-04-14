@@ -17,9 +17,9 @@ public class InvoiceService {
     }
 
     public Invoice saveInvoice(Invoice invoice) {
-        for (InvoiceItem item : invoice.getItems()) {
-            item.setInvoice(invoice);
-        }
+//        for (InvoiceItem item : invoice.getItems()) {
+//            item.setInvoice(invoice);
+//        }
         return invoiceRepository.save(invoice);
     }
 
