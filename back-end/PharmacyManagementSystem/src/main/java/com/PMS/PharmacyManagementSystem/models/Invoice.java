@@ -17,9 +17,6 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "invoice_number")
-    private String invoiceNumber;
-
     @Column(name = "amount")
     private BigDecimal amount;
 

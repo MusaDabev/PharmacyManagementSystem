@@ -5,6 +5,8 @@ import com.PMS.PharmacyManagementSystem.models.InvoiceItem;
 import com.PMS.PharmacyManagementSystem.repository.InvoiceRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InvoiceService {
 
@@ -19,6 +21,10 @@ public class InvoiceService {
             item.setInvoice(invoice);
         }
         return invoiceRepository.save(invoice);
+    }
+
+    public List<Invoice> getAllInvoices() {
+        return invoiceRepository.findAll();
     }
 
 }
