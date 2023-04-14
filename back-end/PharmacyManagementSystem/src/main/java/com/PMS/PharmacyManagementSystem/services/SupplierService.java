@@ -5,11 +5,8 @@ import com.PMS.PharmacyManagementSystem.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
 import java.util.List;
 
-=======
->>>>>>> develop
 @Service
 public class SupplierService {
     @Autowired
@@ -17,10 +14,12 @@ public class SupplierService {
     public Supplier saveSupplier(Supplier supplier) {
         return supplierRepository.save(supplier);
     }
-<<<<<<< HEAD
+
     public List<Supplier> getAllSuppliers() {
         return supplierRepository.findAll();
     }
-=======
->>>>>>> develop
+
+    public void deleteSupplierById(Long id) {
+        supplierRepository.deleteById(id);
+    }
 }
