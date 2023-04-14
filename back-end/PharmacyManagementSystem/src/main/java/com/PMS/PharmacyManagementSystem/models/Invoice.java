@@ -23,7 +23,7 @@ public class Invoice {
     @Column(name = "invoice_date")
     private LocalDate invoiceDate;
 
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<InvoiceItem> items = new ArrayList<>();
+//    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private String items;
 
 }
