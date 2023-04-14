@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/invoices")
 public class InvoiceController {
 
     private final InvoiceService invoiceService;
@@ -17,13 +16,13 @@ public class InvoiceController {
         this.invoiceService = invoiceService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/invoices")
     public ResponseEntity<Invoice> saveInvoice(@RequestBody Invoice invoice) {
         Invoice savedInvoice = invoiceService.saveInvoice(invoice);
         return ResponseEntity.ok(savedInvoice);
     }
 
-    @GetMapping("/")
+    @GetMapping("/invoices")
     public ResponseEntity<List<Invoice>> getAllInvoices() {
         List<Invoice> invoices = invoiceService.getAllInvoices();
         return ResponseEntity.ok().body(invoices);
