@@ -1,25 +1,67 @@
 import axios from "axios";
+import { async } from "q";
 import React, { useState } from "react";
 
 const AddSupplierForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [successMsg, setSuccessMsg] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
 
-  const onSubmit = (e) => {
+  async function onSubmit(e) {
     e.preventDefault();
-    axios.post("http://localhost:8080/suppliers", {
-      name,
-      email,
-      phone,
-    });
-    setName("");
-    setEmail("");
-    setPhone("");
-  };
+    try {
+      const response = await axios.post("http://localhost:8080/suppliers", {
+        name,
+        email,
+        phone,
+      });
+      if (response.status === 200) {
+        setSuccessMsg(true);
+        setName("");
+        setEmail("");
+        setPhone("");
+      } else {
+        setErrorMsg(true);
+      }
+    } catch (error) {
+      console.error("Failed to add supplier", error);
+    }
+  }
 
   return (
     <form onSubmit={onSubmit}>
+      {successMsg && (
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          Доставчикът беше добавен усепшно!
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setSuccessMsg(false)}
+          ></button>
+        </div>
+      )}
+      {errorMsg && (
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          Доставчикът не може да бъде добавен!
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setErrorMsg(false)}
+          ></button>
+        </div>
+      )}
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Име:
