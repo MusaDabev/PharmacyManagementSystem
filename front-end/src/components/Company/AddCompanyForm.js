@@ -45,13 +45,13 @@ function AddCompanyForm() {
     <form onSubmit={handleSubmit}>
       {successMsg && (
         <div
-          class="alert alert-success alert-dismissible fade show"
+          className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
           Компанията беше добавена усепшно!
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
             onClick={() => setSuccessMsg(false)}
@@ -60,13 +60,13 @@ function AddCompanyForm() {
       )}
       {errorMsg && (
         <div
-          class="alert alert-success alert-dismissible fade show"
+          className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
           Грешка при добавяне на компанията!
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
             onClick={() => setErrorMsg(false)}
