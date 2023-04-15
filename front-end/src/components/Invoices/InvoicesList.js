@@ -34,15 +34,14 @@ function InvoicesList({ handleSelectedSupplier }) {
         </thead>
         <tbody>
           {invoices.map((invoice) => (
-            <tr
-              key={invoice.id}
-            >
+            <tr key={invoice.id}>
               <td>{invoice.id}</td>
               <td>{invoice.amount}</td>
               <td>{invoice.invoiceDate}</td>
-              <td>
+              <td className="d-flex justify-content-center">
                 {" "}
                 <CiCircleRemove
+                  size="1.5rem"
                   onClick={() => handleRemoveInvoice(invoice.id)}
                 />
               </td>
