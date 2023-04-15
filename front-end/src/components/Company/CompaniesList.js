@@ -12,12 +12,12 @@ function CompaniesList({ handleSelectedCompany }) {
     dispatch(fetchCompanies());
   }, [dispatch]);
 
- const handleRemoveCompany = (id) => {
+  const handleRemoveCompany = (id) => {
     axios
       .delete(`http://localhost:8080/companies/${id}`)
       .then(() => dispatch(fetchCompanies()))
-      .catch((error) => console.log(error))
- }
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="mt-2">
@@ -36,10 +36,7 @@ function CompaniesList({ handleSelectedCompany }) {
         </thead>
         <tbody>
           {companies.map((company) => (
-            <tr
-              key={company.id}
-              onClick={() => handleSelectedCompany(company)}
-            >
+            <tr key={company.id} onClick={() => handleSelectedCompany(company)}>
               <td>{company.id}</td>
               <td>{company.name}</td>
               <td>{company.address}</td>
@@ -47,7 +44,10 @@ function CompaniesList({ handleSelectedCompany }) {
               <td>{company.email}</td>
               <td className="d-flex justify-content-center">
                 {" "}
-                <CiCircleRemove size="1.5rem" onClick={() => handleRemoveCompany(company.id)} />
+                <CiCircleRemove
+                  size="1.5rem"
+                  onClick={() => handleRemoveCompany(company.id)}
+                />
               </td>
             </tr>
           ))}

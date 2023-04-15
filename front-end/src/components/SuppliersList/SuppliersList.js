@@ -43,9 +43,10 @@ function SuppliersList({ handleSelectedSupplier }) {
               <td>{supplier.name}</td>
               <td>{supplier.email}</td>
               <td>{supplier.phone}</td>
-              <td>
+              <td className="d-flex justify-content-center">
                 {" "}
                 <CiCircleRemove
+                  size="1.5rem"
                   onClick={() => handleRemoveSupplier(supplier.id)}
                 />
               </td>

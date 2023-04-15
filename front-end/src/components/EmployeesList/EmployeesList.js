@@ -45,9 +45,9 @@ function EmployeesList({ handleSelectedEmployee }) {
               <td>{employee.lastName}</td>
               <td>{employee.email}</td>
               <td>{employee.position}</td>
-              <td>
+              <td className="d-flex justify-content-center">
                 {" "}
-                <CiCircleRemove onClick={() => handleRemoveEmployee(employee.id)} />
+                <CiCircleRemove size="1.5rem" onClick={() => handleRemoveEmployee(employee.id)} />
               </td>
             </tr>
           ))}
