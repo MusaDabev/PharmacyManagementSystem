@@ -34,13 +34,13 @@ const AddSupplierForm = () => {
     <form onSubmit={onSubmit}>
       {successMsg && (
         <div
-          class="alert alert-success alert-dismissible fade show"
+          className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
           Доставчикът беше добавен усепшно!
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
             onClick={() => setSuccessMsg(false)}
@@ -49,13 +49,13 @@ const AddSupplierForm = () => {
       )}
       {errorMsg && (
         <div
-          class="alert alert-success alert-dismissible fade show"
+          className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
           Доставчикът не може да бъде добавен!
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
             onClick={() => setErrorMsg(false)}

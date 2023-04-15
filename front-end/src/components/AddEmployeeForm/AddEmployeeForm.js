@@ -82,13 +82,13 @@ function AddEmployeeForm() {
     <form className={styles.form} onSubmit={handleSubmit}>
       {successMsg && (
         <div
-          class="alert alert-success alert-dismissible fade show"
+          className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
           Служителят беше добавен усепшно!
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
             onClick={() => setSuccessMsg(false)}
@@ -97,13 +97,13 @@ function AddEmployeeForm() {
       )}
       {errorMsg && (
         <div
-          class="alert alert-success alert-dismissible fade show"
+          className="alert alert-success alert-dismissible fade show"
           role="alert"
         >
           Служителят не може да бъде добавен!
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
             onClick={() => setErrorMsg(false)}
