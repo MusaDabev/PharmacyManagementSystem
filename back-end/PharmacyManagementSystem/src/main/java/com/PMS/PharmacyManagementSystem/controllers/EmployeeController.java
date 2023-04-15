@@ -1,5 +1,6 @@
 package com.PMS.PharmacyManagementSystem.controllers;
 
+import com.PMS.PharmacyManagementSystem.exceptions.ResourceNotFoundException;
 import com.PMS.PharmacyManagementSystem.exceptions.UnauthorizedException;
 import com.PMS.PharmacyManagementSystem.models.Employee;
 import com.PMS.PharmacyManagementSystem.repository.EmployeeRepository;
@@ -42,6 +43,14 @@ public class EmployeeController {
         employee.setPassword(encryptedPassword);
         return employeeRepository.save(employee);
     }
+
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
+                                                   @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
+        Employee updatedEmployee = employeeService.updateEmployee(employeeId, employeeDetails);
+        return ResponseEntity.ok(updatedEmployee);
+    }
+
 
     @DeleteMapping("employees/{id}")
     public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable("id") Long id) {
