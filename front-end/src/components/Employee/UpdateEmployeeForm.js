@@ -33,7 +33,7 @@ const UpdateEmployeeForm = ({ employee }) => {
 
   const handleUpdateEmployee = (event) => {
     event.preventDefault();
-    const employee = {
+    const employeeDetails = {
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -41,7 +41,7 @@ const UpdateEmployeeForm = ({ employee }) => {
       position: position,
     };
     axios
-      .post("http://localhost:8080/employees", employee)
+      .put(`http://localhost:8080/employees/${employee.id}`, employeeDetails)
       .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
   };

@@ -21,7 +21,7 @@ function SuppliersList({ handleSelectedSupplier }) {
 
   return (
     <div className="mt-2">
-      <h2>доставчици</h2>
+      <h2>Доставчици</h2>
 
       <table className="table table-striped table-bordered table-hover">
         <thead>
