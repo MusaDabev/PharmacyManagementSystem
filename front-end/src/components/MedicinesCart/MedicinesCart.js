@@ -31,11 +31,13 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
       })
     );
     // sell invoice in database
-    axios.post("http://localhost:8080/invoices", {
-      amount: totalPrice,
-      invoiceDate: new Date(),
-      // items: [...cartItems],
-    }).catch((error) => console.error(error));
+    axios
+      .post("http://localhost:8080/invoices", {
+        amount: totalPrice,
+        invoiceDate: new Date(),
+        // items: [...cartItems],
+      })
+      .catch((error) => console.error(error));
 
     // reset form
     setSelectedMedicine({});
@@ -70,9 +72,11 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
           ))}
         </tbody>
       </table>
-      <button onClick={handleSellMedicine} className="btn btn-primary">
-        Продай и Принтирай
-      </button>
+      <div>
+        <button onClick={handleSellMedicine} className="btn btn-primary">
+          Продай и Принтирай
+        </button>
+      </div>
       <Modal items={cartItems} />
     </>
   );
