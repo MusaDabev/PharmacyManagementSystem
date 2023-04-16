@@ -60,7 +60,7 @@ function AddEmployeeForm() {
     const newEmployee = { firstName, lastName, email, password, position };
     try {
       const response = await axios.post(
-        "http://localhost:8080/employees",
+        "http://localhost:8080/users",
         newEmployee
       );
       if (response.status === 200) {

@@ -41,7 +41,7 @@ const UpdateEmployeeForm = ({ employee }) => {
       position: position,
     };
     axios
-      .put(`http://localhost:8080/employees/${employee.id}`, employeeDetails)
+      .put(`http://localhost:8080/users/${employee.id}`, employeeDetails)
       .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
   };
