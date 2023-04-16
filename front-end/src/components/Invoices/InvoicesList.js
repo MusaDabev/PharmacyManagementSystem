@@ -20,7 +20,7 @@ function InvoicesList({ handleSelectedSupplier }) {
   };
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 p-3">
       <h2>Фактури</h2>
 
       <table className="table table-striped table-bordered table-hover">
