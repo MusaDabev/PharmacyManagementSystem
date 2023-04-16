@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/pictures/logo.png";
+import { setUser } from "../../redux/slices/userSlice";
+import { useDispatch } from "react-redux";
 
-function Login({ setUser }) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -27,8 +30,8 @@ function Login({ setUser }) {
       );
       if (response.status === 200) {
         navigate("/");
-        // set user
-        setUser(response.data);
+        // store user
+        dispatch(setUser(response.data));
         console.log(response.data);
       } else {
         // toaster

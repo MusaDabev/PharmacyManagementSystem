@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, json } from "react-router-dom";
+import { Routes, Route, json, Navigate } from "react-router-dom";
 import Invoice from "./components/Invoice/Invoice";
 import NavBar from "./components/NavBar/NavBar";
 import TodayReport from "./Pages/TodayReport/TodayReport";
@@ -17,6 +17,8 @@ import Stock from "./Pages/Stock/Stock";
 import AddSupplier from "./Pages/AddSupplier/AddSupplier";
 import ManageSuppliers from "./Pages/ManageSuppliers/ManageSuppliers";
 import ManageInvoices from "./Pages/Invoices/ManageInvoices";
+import { useSelector } from "react-redux";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -39,45 +41,123 @@ function App() {
     <>
       <NavBar user={user} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/add-employee" element={<AddEmployee />} />
         <Route path="/manage-employees" element={<ManageEmployees />} />
-        <Route path="/add-medicine" element={<AddMedicine />} />
-        <Route path="/add-company" element={<AddCompany />} />
-        <Route path="/manage-companies" element={<ManageCompanies />} />
-        <Route path="/add-supplier" element={<AddSupplier />} />
-        <Route path="/manage-suppliers" element={<ManageSuppliers />} />
-        <Route path="/manage-invoices" element={<ManageInvoices />} />
+        <Route
+          path="/add-medicine"
+          element={
+            <ProtectedRoute>
+              <AddMedicine />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-company"
+          element={
+            <ProtectedRoute>
+              <AddCompany />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/manage-companies"
+          element={
+            <ProtectedRoute>
+              <ManageCompanies />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-supplier"
+          element={
+            <ProtectedRoute>
+              <AddSupplier />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/manage-suppliers"
+          element={
+            <ProtectedRoute>
+              <ManageSuppliers />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/manage-invoices"
+          element={
+            <ProtectedRoute>
+              <ManageInvoices />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/sell-medicine"
           element={
-            <SellMedicine
-              jsonData={jsonData}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              setInvoices={setInvoices}
-            />
+            <ProtectedRoute>
+              <SellMedicine
+                jsonData={jsonData}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                setInvoices={setInvoices}
+              />
+            </ProtectedRoute>
           }
         />
         <Route
           path="/invoice"
           element={
-            <Invoice
-              invoiceNumber={123}
-              items={cartItems}
-              date={date}
-              total={444}
-            />
+            <ProtectedRoute>
+              <Invoice
+                invoiceNumber={123}
+                items={cartItems}
+                date={date}
+                total={444}
+              />
+            </ProtectedRoute>
           }
         />
         <Route
           path="/medicines-in-stock"
-          element={<MedicinesInStock medicines={jsonData} />}
+          element={
+            <ProtectedRoute>
+              <MedicinesInStock medicines={jsonData} />
+            </ProtectedRoute>
+          }
         />
-        <Route path="/stock" element={<Stock />} />
-        <Route path="/discounts" element={<Discount />} />
-        <Route path="/today-report" element={<TodayReport />} />
+        <Route
+          path="/stock"
+          element={
+            <ProtectedRoute>
+              <Stock />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/discounts"
+          element={
+            <ProtectedRoute>
+              <Discount />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/today-report"
+          element={
+            <ProtectedRoute>
+              <TodayReport />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
