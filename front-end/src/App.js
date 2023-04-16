@@ -19,6 +19,7 @@ import ManageSuppliers from "./Pages/ManageSuppliers/ManageSuppliers";
 import ManageInvoices from "./Pages/Invoices/ManageInvoices";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminProtectedRoute from "./components/AdminProtectedRoute";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -50,8 +51,22 @@ function App() {
           }
         />
         <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/add-employee" element={<AddEmployee />} />
-        <Route path="/manage-employees" element={<ManageEmployees />} />
+        <Route
+          path="/add-employee"
+          element={
+            <AdminProtectedRoute>
+              <AddEmployee />
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/manage-employees"
+          element={
+            <AdminProtectedRoute>
+              <ManageEmployees />
+            </AdminProtectedRoute>
+          }
+        />
         <Route
           path="/add-medicine"
           element={

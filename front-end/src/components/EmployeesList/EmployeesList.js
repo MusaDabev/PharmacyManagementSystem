@@ -14,7 +14,7 @@ function EmployeesList({ handleSelectedEmployee }) {
 
  const handleRemoveEmployee = (id) => {
     axios
-      .delete(`http://localhost:8080/employees/${id}`)
+      .delete(`http://localhost:8080/users/${id}`)
       .then(() => dispatch(fetchEmployees()))
       .catch((error) => console.log(error))
  }
