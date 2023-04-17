@@ -46,7 +46,10 @@ function Login() {
         <img src={logo} className="mx-auto d-block w-50" alt="logo"></img>
         <div className="col-md-6">
           <div className="card">
-            <div className="card-header bg-primary text-white text-center">
+            <div
+              style={{ backgroundColor: "rgb(57, 144, 243)" }}
+              className="card-header text-white text-center"
+            >
               <h1>Вход</h1>
             </div>
             <div className="card-body">
@@ -72,6 +75,7 @@ function Login() {
                   />
                 </div>
                 <button
+                  style={{ backgroundColor: "rgb(57, 144, 243)" }}
                   type="submit"
                   className="btn btn-primary btn-block mt-2"
                 >
