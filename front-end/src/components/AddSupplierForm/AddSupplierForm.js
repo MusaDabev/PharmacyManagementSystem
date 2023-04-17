@@ -68,6 +68,7 @@ const AddSupplierForm = () => {
         </label>
         <input
           type="text"
+          required
           className="form-control"
           id="name"
           value={name}
@@ -80,6 +81,7 @@ const AddSupplierForm = () => {
         </label>
         <input
           type="email"
+          required
           className="form-control"
           id="email"
           value={email}
@@ -92,6 +94,7 @@ const AddSupplierForm = () => {
         </label>
         <input
           type="text"
+          required
           className="form-control"
           id="phone"
           value={phone}

@@ -114,6 +114,7 @@ function AddEmployeeForm() {
         Име:
         <input
           type="text"
+          required
           value={firstName}
           onChange={handleFirstNameChange}
           className={styles.input}
@@ -123,6 +124,7 @@ function AddEmployeeForm() {
         Фамилия:
         <input
           type="text"
+          required
           value={lastName}
           onChange={handleLastNameChange}
           className={styles.input}
@@ -141,6 +143,7 @@ function AddEmployeeForm() {
         Имейл:
         <input
           type="email"
+          required
           value={email}
           onChange={handleEmailChange}
           onBlur={validateEmail}
@@ -152,6 +155,7 @@ function AddEmployeeForm() {
         Парола:
         <input
           type="password"
+          required
           value={password}
           onChange={handlePasswordChange}
           onBlur={validatePassword}
