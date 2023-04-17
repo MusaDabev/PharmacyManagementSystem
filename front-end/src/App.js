@@ -17,7 +17,6 @@ import Stock from "./Pages/Stock/Stock";
 import AddSupplier from "./Pages/AddSupplier/AddSupplier";
 import ManageSuppliers from "./Pages/ManageSuppliers/ManageSuppliers";
 import ManageInvoices from "./Pages/Invoices/ManageInvoices";
-import { useSelector } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminProtectedRoute from "./components/AdminProtectedRoute";
 

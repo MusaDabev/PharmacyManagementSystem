@@ -13,3 +13,10 @@
     margin-bottom: 20px !important;
     text-decoration: none;
 }
+
+button {
+    background-color: transparent;
+    color: #0d6efd;
+    border: none;
+    padding: 0;
+}
