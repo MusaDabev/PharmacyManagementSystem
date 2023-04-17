@@ -7,9 +7,18 @@ import { TbShoppingCartDiscount } from "react-icons/tb";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoBusinessOutline } from "react-icons/io5";
+import { BiLogOut } from "react-icons/bi";
 import styles from "./SideBar.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUser } from "../../redux/slices/userSlice";
 
 function SideBar() {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(clearUser());
+  };
   return (
     <div className={styles.sideBarContainer}>
       <div className="row w-100 h-100">
@@ -232,6 +241,14 @@ function SideBar() {
                   <span className="ms-1 d-none d-sm-inline">Отстъпки</span>{" "}
                 </Link>
               </li>
+              {Object.keys(user).length > 0 && (
+                <li className="mt-3">
+                  <button onClick={handleLogout} className={styles.button}>
+                    <BiLogOut size={"1.5rem"} />{" "}
+                    <span className="ms-1 d-none d-sm-inline">Изход</span>{" "}
+                  </button>
+                </li>
+              )}
             </ul>
             <hr />
           </div>
