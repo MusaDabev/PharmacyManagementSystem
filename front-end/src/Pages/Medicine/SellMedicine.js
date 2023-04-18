@@ -25,8 +25,8 @@ function SellMedicine({ jsonData, setCartItems, setInvoices }) {
   };
   return (
     <>
-      <div className="row p-3">Продай лекарство</div>
-      <div className="row p-3">
+      <div className="p-3">Продай лекарство</div>
+      <div className="row p-3 g-0">
         <div className="col">
           <SearchBar
             jsonData={jsonData}

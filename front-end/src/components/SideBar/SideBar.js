@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { CiPill } from "react-icons/ci";
 import { AiOutlineStock } from "react-icons/ai";
@@ -14,10 +14,12 @@ import { clearUser } from "../../redux/slices/userSlice";
 
 function SideBar() {
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(clearUser());
+    navigate("/login");
   };
   return (
     <div className={styles.sideBarContainer}>
@@ -146,12 +148,12 @@ function SideBar() {
                   data-bs-parent="#menu"
                 >
                   <li className="w-100">
-                    <a href="#" className="nav-link px-0">
+                    <Link to="/add-medicine" className="nav-link px-0">
                       {" "}
                       <span className="d-none d-sm-inline">
                         Добави лекарство
                       </span>{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="#" className="nav-link px-0">

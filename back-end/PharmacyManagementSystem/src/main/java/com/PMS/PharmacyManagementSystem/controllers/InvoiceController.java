@@ -1,11 +1,14 @@
 package com.PMS.PharmacyManagementSystem.controllers;
 
 import com.PMS.PharmacyManagementSystem.models.Invoice;
+import com.PMS.PharmacyManagementSystem.repository.InvoiceRepository;
 import com.PMS.PharmacyManagementSystem.services.InvoiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -13,6 +16,9 @@ import java.util.List;
 public class InvoiceController {
 
     private final InvoiceService invoiceService;
+
+    @Autowired
+    private InvoiceRepository invoiceRepository;
 
     public InvoiceController(InvoiceService invoiceService) {
         this.invoiceService = invoiceService;
@@ -27,6 +33,14 @@ public class InvoiceController {
     @GetMapping("/invoices")
     public ResponseEntity<List<Invoice>> getAllInvoices() {
         List<Invoice> invoices = invoiceService.getAllInvoices();
+        return ResponseEntity.ok().body(invoices);
+    }
+
+    @GetMapping("/invoices/today")
+    public ResponseEntity<List<Invoice>> getAllInvoicesFromToday() {
+        LocalDate todayDate = LocalDate.now();
+        System.out.println(todayDate);
+        List<Invoice> invoices = invoiceRepository.findAllByDate(todayDate);
         return ResponseEntity.ok().body(invoices);
     }
 

@@ -1,5 +1,5 @@
 insert into users(first_name, last_name, email, position, password, role) values
-("Musa", "Dabev", "musadabev17@gamil.com", "Admin", "099E5D84187EC9C51FBEAD4DCE3495EF", "ROLE_ADMIN");
+("Musa", "Dabev", "musadabev17@gamil.com", "Admin", "099E5D84187EC9C51FBEAD4DCE3495EF", "ADMIN");
 
 --insert into roles (name) values
 --("ADMIN"),

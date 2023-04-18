@@ -1,19 +1,25 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addInvoice } from "../../redux/slices/invoiceSlice";
 import { addStock } from "../../redux/slices/stockSlice";
-import Modal from "../Modal/Modal";
-import { InvoiceContext } from "../../context/InvoiceContext";
 import axios from "axios";
+import { emptyCart } from "../../redux/slices/cartSlice";
 
 function MedicinesCart({ setInvoices, setSelectedMedicine }) {
   const [successMsg, setSuccessMsg] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
   const cartItems = useSelector((state) => state.cart);
-  const invoices = useSelector((state) => state.invoices);
   const dispatch = useDispatch();
-  const { showInvoiceButton, toggleShowButton } = useContext(InvoiceContext);
-  const date = Date.now();
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+  const localDate =
+    year +
+    "-" +
+    month.toString().padStart(2, "0") +
+    "-" +
+    day.toString().padStart(2, "0");
 
   const totalPrice = cartItems.reduce((sum, item) => {
     return sum + item.price * item.units;
@@ -24,24 +30,17 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
     setInvoices();
     dispatch(addStock(totalPrice));
 
-    // add a new invoice
-    dispatch(
-      addInvoice({
-        id: date,
-        cartItems: [...cartItems],
-        total: totalPrice,
-      })
-    );
     // save invoice in database
     saveInvoice();
-    // show invoice button
-    toggleShowButton(true);
+
+    // empty cart
+    dispatch(emptyCart());
   };
 
   async function saveInvoice() {
     const response = await axios.post("http://localhost:8080/invoices", {
       amount: totalPrice,
-      invoiceDate: new Date(),
+      invoiceDate: localDate,
       // items: [...cartItems],
     });
 
@@ -108,11 +107,14 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
         </tbody>
       </table>
       <div>
-        <button onClick={handleSellMedicine} className="btn btn-primary">
+        <button
+          disabled={cartItems.length === 0}
+          onClick={handleSellMedicine}
+          className="btn btn-primary"
+        >
           Продай и Принтирай
         </button>
       </div>
-      <Modal items={cartItems} />
     </>
   );
 }

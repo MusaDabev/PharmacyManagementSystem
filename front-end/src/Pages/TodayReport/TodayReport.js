@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import Stock from "../Stock/Stock";
 import SideBar from "../../components/SideBar/SideBar";
+import axios from "axios";
 
 function TodayReport() {
-  const invoices = useSelector((state) => state.invoices);
-  let medicinesNames = "";
+  const [invoices, setInvoices] = useState();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/invoices/today")
+      .then((response) => setInvoices(response.data));
+  }, []);
 
   return (
     <div className="d-flex">
       <SideBar />
-      <div className="d-flex align-items-center flex-column">
+      <div className="d-flex align-items-center flex-column p-3">
         <Stock />
         <div>Приходи за днес: {}</div>
         <h2>Фактури</h2>
@@ -25,18 +30,12 @@ function TodayReport() {
             </thead>
             <tbody>
               {invoices &&
-                invoices.map((row, index) => (
-                  <>
-                    <tr key={index}>
-                      <td key={index}>{row.id}</td>
-                      {row.cartItems.forEach((cell, index) => {
-                        medicinesNames += cell.name + ", ";
-                      })}
-                      <td key={index}>{medicinesNames.slice(0, -2)}</td>
-                      <td key={index}>{row.total}</td>
-                    </tr>
-                    {(medicinesNames = "")}
-                  </>
+                invoices.map((invoice) => (
+                  <tr key={invoice.id}>
+                    <td>{invoice.id}</td>
+                    <td>Лекарства....</td>
+                    <td>{invoice.amount}</td>
+                  </tr>
                 ))}
             </tbody>
           </table>

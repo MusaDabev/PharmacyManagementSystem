@@ -1,5 +1,5 @@
 import React from "react";
-import {AiOutlineShoppingCart} from 'react-icons/ai';
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 function SellMedicineForm({
   medicine,
@@ -85,12 +85,13 @@ function SellMedicineForm({
           </div>
         </div>
       </form>
-      <div className="ms-auto">
+      <div className="ms-auto me-3">
         <button
+          disabled={Object.keys(medicine).length === 0}
           className="btn btn-primary"
           onClick={() => handleAddCartItem(medicine, numberOfUnits)}
         >
-         <AiOutlineShoppingCart size="1.5rem" /> Добави в Количка
+          <AiOutlineShoppingCart size="1.5rem" /> Добави в Количка
         </button>
       </div>
     </div>
