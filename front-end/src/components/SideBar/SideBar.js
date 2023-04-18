@@ -31,7 +31,7 @@ function SideBar() {
               <span className="fs-5 d-none d-sm-inline">Меню</span>
             </Link>
             <ul
-              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+              className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100"
               id="menu"
             >
               <li>
@@ -44,14 +44,19 @@ function SideBar() {
                   <span className="ms-1 d-none d-sm-inline">Табло</span>{" "}
                 </a>
               </li>
-              <li>
+              <li className="w-100">
                 <a
                   href="#submenu2"
                   data-bs-toggle="collapse"
-                  className="nav-link px-0 align-middle "
+                  className="nav-link px-0 align-middle d-flex"
                 >
-                  <FaFileInvoiceDollar size={"1.5rem"} />
-                  <span className="ms-1 d-none d-sm-inline">Фактура</span>
+                  <div>
+                    <FaFileInvoiceDollar size={"1.5rem"} />
+                    <span className="ms-1 d-none d-sm-inline">Фактура</span>
+                  </div>
+                  <div className="ms-auto">
+                    <span className="dropdown-toggle"></span>
+                  </div>
                 </a>
                 <ul
                   className="collapse nav flex-column ms-1"
@@ -74,14 +79,19 @@ function SideBar() {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="w-100">
                 <a
                   href="#submenu3"
                   data-bs-toggle="collapse"
-                  className="nav-link px-0 align-middle "
+                  className="nav-link px-0 align-middle d-flex"
                 >
-                  <BsFillPersonPlusFill size={"1.5rem"} />{" "}
-                  <span className="ms-1 d-none d-sm-inline">Служител</span>
+                  <div>
+                    <BsFillPersonPlusFill size={"1.5rem"} />{" "}
+                    <span className="ms-1 d-none d-sm-inline">Служител</span>
+                  </div>
+                  <div className="ms-auto">
+                    <span className="dropdown-toggle"></span>
+                  </div>
                 </a>
                 <ul
                   className="collapse nav flex-column ms-1"
@@ -116,14 +126,19 @@ function SideBar() {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="w-100">
                 <a
                   href="#submenu4"
                   data-bs-toggle="collapse"
-                  className="nav-link px-0 align-middle"
+                  className="nav-link px-0 align-middle d-flex"
                 >
-                  <CiPill size={"1.5rem"} />{" "}
-                  <span className="ms-1 d-none d-sm-inline">Лекарство</span>{" "}
+                  <div>
+                    <CiPill size={"1.5rem"} />{" "}
+                    <span className="ms-1 d-none d-sm-inline">Лекарство</span>{" "}
+                  </div>
+                  <div className="ms-auto">
+                    <span className="dropdown-toggle"></span>
+                  </div>
                 </a>
                 <ul
                   className="collapse nav flex-column ms-1"
@@ -159,14 +174,19 @@ function SideBar() {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="w-100">
                 <a
                   href="#submenu5"
                   data-bs-toggle="collapse"
-                  className="nav-link px-0 align-middle d-flex align-items-center"
+                  className="nav-link px-0 align-middle d-flex"
                 >
-                  <CiDeliveryTruck className="fs-4 bi-grid"></CiDeliveryTruck>{" "}
-                  <span className="ms-1 d-none d-sm-inline">Доставчик</span>{" "}
+                  <div>
+                    <CiDeliveryTruck className="fs-4 bi-grid"></CiDeliveryTruck>{" "}
+                    <span className="ms-1 d-none d-sm-inline">Доставчик</span>{" "}
+                  </div>
+                  <div className="ms-auto">
+                    <span className="dropdown-toggle"></span>
+                  </div>
                 </a>
                 <ul
                   className="collapse nav flex-column ms-1"
@@ -191,14 +211,19 @@ function SideBar() {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="w-100">
                 <a
                   href="#submenu6"
                   data-bs-toggle="collapse"
-                  className="nav-link px-0 align-middle d-flex align-items-center"
+                  className="nav-link px-0 align-middle d-flex"
                 >
-                  <IoBusinessOutline className="fs-4 bi-grid"></IoBusinessOutline>{" "}
-                  <span className="ms-1 d-none d-sm-inline">Компания</span>{" "}
+                  <div>
+                    <IoBusinessOutline className="fs-4 bi-grid"></IoBusinessOutline>{" "}
+                    <span className="ms-1 d-none d-sm-inline">Компания</span>{" "}
+                  </div>
+                  <div className="ms-auto">
+                    <span className="dropdown-toggle"></span>
+                  </div>
                 </a>
                 <ul
                   className="collapse nav flex-column ms-1"
