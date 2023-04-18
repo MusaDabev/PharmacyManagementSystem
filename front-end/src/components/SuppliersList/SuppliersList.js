@@ -16,6 +16,7 @@ function SuppliersList({ handleSelectedSupplier }) {
     axios
       .delete(`http://localhost:8080/suppliers/${id}`)
       .then(() => dispatch(fetchSuppliers()))
+      .then(() => handleSelectedSupplier({}))
       .catch((error) => console.log(error));
   };
 

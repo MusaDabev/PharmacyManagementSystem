@@ -16,6 +16,14 @@ function CompaniesList({ handleSelectedCompany }) {
     axios
       .delete(`http://localhost:8080/companies/${id}`)
       .then(() => dispatch(fetchCompanies()))
+      .then(() =>
+        handleSelectedCompany({
+          name: "",
+          address: "",
+          phoneNumber: "",
+          email: "",
+        })
+      )
       .catch((error) => console.log(error));
   };
 
