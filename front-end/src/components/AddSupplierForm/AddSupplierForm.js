@@ -31,8 +31,9 @@ const AddSupplierForm = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      {successMsg && (
+    <>
+    <div className="mx-auto" style={{width: "fit-content"}}>
+    {successMsg && (
         <div
           className="alert alert-success alert-dismissible fade show"
           role="alert"
@@ -62,49 +63,55 @@ const AddSupplierForm = () => {
           ></button>
         </div>
       )}
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Име:
-        </label>
-        <input
-          type="text"
-          required
-          className="form-control"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">
-          Имейл:
-        </label>
-        <input
-          type="email"
-          required
-          className="form-control"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="phone" className="form-label">
-          Телефон:
-        </label>
-        <input
-          type="text"
-          required
-          className="form-control"
-          id="phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Запази
-      </button>
-    </form>
+    </div>
+
+      <form onSubmit={onSubmit} className="d-sm-flex align-items-center mx-auto">
+        <div className="ms-3">
+          <label htmlFor="name" className="form-label">
+            Име:
+          </label>
+          <input
+            type="text"
+            required
+            className="form-control"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="ms-3">
+          <label htmlFor="email" className="form-label">
+            Имейл:
+          </label>
+          <input
+            type="email"
+            required
+            className="form-control"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="ms-3">
+          <label htmlFor="phone" className="form-label">
+            Телефон:
+          </label>
+          <input
+            type="text"
+            required
+            className="form-control"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
+        <div className="ms-3 mt-4 pt-2">
+          <button type="submit" className="btn btn-primary">
+            Запази
+          </button>
+        </div>
+      </form>
+    </>
   );
 };
 
