@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addInvoice } from "../../redux/slices/invoiceSlice";
 import { addStock } from "../../redux/slices/stockSlice";
@@ -7,6 +7,8 @@ import { InvoiceContext } from "../../context/InvoiceContext";
 import axios from "axios";
 
 function MedicinesCart({ setInvoices, setSelectedMedicine }) {
+  const [successMsg, setSuccessMsg] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
   const cartItems = useSelector((state) => state.cart);
   const invoices = useSelector((state) => state.invoices);
   const dispatch = useDispatch();
@@ -30,26 +32,59 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
         total: totalPrice,
       })
     );
-    // sell invoice in database
-    axios
-      .post("http://localhost:8080/invoices", {
-        amount: totalPrice,
-        invoiceDate: new Date(),
-        // items: [...cartItems],
-      })
-      .catch((error) => console.error(error));
-
-    // reset form
-    setSelectedMedicine({});
-
+    // save invoice in database
+    saveInvoice();
     // show invoice button
     toggleShowButton(true);
   };
-  useEffect(() => {
-    console.log(invoices);
-  });
+
+  async function saveInvoice() {
+    const response = await axios.post("http://localhost:8080/invoices", {
+      amount: totalPrice,
+      invoiceDate: new Date(),
+      // items: [...cartItems],
+    });
+
+    if (response.status === 200) {
+      // reset form
+      setSelectedMedicine({});
+      setSuccessMsg(true);
+    } else {
+      setErrorMsg(true);
+    }
+  }
   return (
     <>
+      {successMsg && (
+        <div
+          className="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          Операцията беше извършена усепшно!
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setSuccessMsg(false)}
+          ></button>
+        </div>
+      )}
+      {errorMsg && (
+        <div
+          className="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          Възникна грешка, опитайте отново!
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setErrorMsg(false)}
+          ></button>
+        </div>
+      )}
       <table className="table table-striped">
         <thead>
           <tr>
