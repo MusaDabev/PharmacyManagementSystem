@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEmployees } from "../../redux/slices/employeesSlice";
 import { CiCircleRemove } from "react-icons/ci";
+import removeEmployeeIcon from "../../assets/pictures/icons/remove-user-svgrepo-com.svg";
 import axios from "axios";
 
 function EmployeesList({ handleSelectedEmployee }) {
@@ -12,13 +13,13 @@ function EmployeesList({ handleSelectedEmployee }) {
     dispatch(fetchEmployees());
   }, [dispatch]);
 
- const handleRemoveEmployee = (id) => {
+  const handleRemoveEmployee = (id) => {
     axios
       .delete(`http://localhost:8080/users/${id}`)
       .then(() => dispatch(fetchEmployees()))
       .then(() => handleSelectedEmployee({}))
-      .catch((error) => console.log(error))
- }
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="mt-2">
@@ -47,8 +48,14 @@ function EmployeesList({ handleSelectedEmployee }) {
               <td>{employee.email}</td>
               <td>{employee.position}</td>
               <td className="d-flex justify-content-center">
-                {" "}
-                <CiCircleRemove size="1.5rem" onClick={() => handleRemoveEmployee(employee.id)} />
+                <img
+                  src={removeEmployeeIcon}
+                  width="30px"
+                  height="30px"
+                  className="mb-2"
+                  role='button'
+                  onClick={() => handleRemoveEmployee(employee.id)}
+                />
               </td>
             </tr>
           ))}
