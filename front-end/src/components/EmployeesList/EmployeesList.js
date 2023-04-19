@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEmployees } from "../../redux/slices/employeesSlice";
-import { CiCircleRemove } from "react-icons/ci";
 import removeEmployeeIcon from "../../assets/pictures/icons/remove-user-svgrepo-com.svg";
 import axios from "axios";
 

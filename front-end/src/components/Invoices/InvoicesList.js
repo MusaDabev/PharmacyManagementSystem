@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CiCircleRemove } from "react-icons/ci";
+import removeIcon from "../../assets/pictures/icons/remove-bin-delete-trash-svgrepo-com.svg";
 import axios from "axios";
 import { fetchInvoices } from "../../redux/slices/invoiceSlice";
 
@@ -39,9 +39,12 @@ function InvoicesList({ handleSelectedSupplier }) {
               <td>{invoice.amount}</td>
               <td>{invoice.invoiceDate}</td>
               <td className="d-flex justify-content-center">
-                {" "}
-                <CiCircleRemove
-                  size="1.5rem"
+                <img
+                  src={removeIcon}
+                  width="30px"
+                  height="30px"
+                  className="mb-2"
+                  role="button"
                   onClick={() => handleRemoveInvoice(invoice.id)}
                 />
               </td>
