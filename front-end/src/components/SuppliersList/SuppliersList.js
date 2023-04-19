@@ -48,7 +48,7 @@ function SuppliersList({ handleSelectedSupplier }) {
                 <img
                   src={removeIcon}
                   width="30px"
-                  height="30px"
+                  height="20px"
                   className="mb-2"
                   role="button"
                   onClick={() => handleRemoveSupplier(supplier.id)}
