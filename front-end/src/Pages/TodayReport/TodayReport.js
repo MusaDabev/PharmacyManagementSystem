@@ -6,6 +6,10 @@ import axios from "axios";
 function TodayReport() {
   const [invoices, setInvoices] = useState();
 
+  const todayIncome = invoices.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.amount;
+  }, 0);
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/invoices/today")
@@ -17,7 +21,7 @@ function TodayReport() {
       <SideBar />
       <div className="d-flex align-items-center flex-column p-3">
         <Stock />
-        <div>Приходи за днес: {}</div>
+        <div>Приходи за днес: {todayIncome} лв.</div>
         <h2>Фактури</h2>
         <div>
           <table className="table table-striped">
