@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CiCircleRemove } from "react-icons/ci";
+import removeIcon from "../../assets/pictures/icons/remove-bin-delete-trash-svgrepo-com.svg";
 import axios from "axios";
 import { fetchSuppliers } from "../../redux/slices/suppliersSlice";
 
@@ -45,9 +45,12 @@ function SuppliersList({ handleSelectedSupplier }) {
               <td>{supplier.email}</td>
               <td>{supplier.phone}</td>
               <td className="d-flex justify-content-center">
-                {" "}
-                <CiCircleRemove
-                  size="1.5rem"
+                <img
+                  src={removeIcon}
+                  width="30px"
+                  height="30px"
+                  className="mb-2"
+                  role="button"
                   onClick={() => handleRemoveSupplier(supplier.id)}
                 />
               </td>
