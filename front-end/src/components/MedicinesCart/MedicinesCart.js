@@ -53,7 +53,7 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
     }
   }
   return (
-    <>
+    <div className="p-4">
       {successMsg && (
         <div
           className="alert alert-success alert-dismissible fade show"
@@ -115,7 +115,7 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
           Продай и Принтирай
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
