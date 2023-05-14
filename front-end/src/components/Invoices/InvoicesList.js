@@ -4,7 +4,7 @@ import removeIcon from "../../assets/pictures/icons/remove-bin-delete-trash-svgr
 import axios from "axios";
 import { fetchInvoices } from "../../redux/slices/invoiceSlice";
 
-function InvoicesList({ handleSelectedSupplier }) {
+function InvoicesList() {
   const dispatch = useDispatch();
   const invoices = useSelector((state) => state.invoices);
 
@@ -15,8 +15,7 @@ function InvoicesList({ handleSelectedSupplier }) {
   const handleRemoveInvoice = (id) => {
     axios
       .delete(`http://localhost:8080/invoices/${id}`)
-      .then(() => dispatch(fetchInvoices()))
-      .catch((error) => console.log(error));
+      .then(() => dispatch(fetchInvoices()));
   };
 
   return (
@@ -26,7 +25,9 @@ function InvoicesList({ handleSelectedSupplier }) {
       <table className="table table-striped table-bordered table-hover">
         <thead>
           <tr>
+            <th>#</th>
             <th>Номер на фактура</th>
+            <th>Клиент</th>
             <th>Сума</th>
             <th>Дата</th>
             <th>Премахни</th>
@@ -36,6 +37,8 @@ function InvoicesList({ handleSelectedSupplier }) {
           {invoices.map((invoice) => (
             <tr key={invoice.id}>
               <td>{invoice.id}</td>
+              <td>{invoice.id + 56825}</td>
+              <td>{"Walking costumer"}</td>
               <td>{invoice.amount}</td>
               <td>{invoice.invoiceDate}</td>
               <td className="d-flex justify-content-center">

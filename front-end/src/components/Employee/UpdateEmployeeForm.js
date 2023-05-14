@@ -42,12 +42,10 @@ const UpdateEmployeeForm = ({ employee }) => {
     };
     axios
       .put(`http://localhost:8080/users/${employee.id}`, employeeDetails)
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log(error));
   };
 
   return (
-    <form>
+    <form className="mt-4 d-flex flex-column">
       <div className="form-group">
         <label htmlFor="firstName">Име:</label>
         <input
@@ -88,7 +86,7 @@ const UpdateEmployeeForm = ({ employee }) => {
           className="form-control"
           name="phone"
           value={phone}
-          //   placeholder={employee.phone}
+          placeholder={employee.phoneNumber}
           onChange={handleInputChange}
         />
       </div>

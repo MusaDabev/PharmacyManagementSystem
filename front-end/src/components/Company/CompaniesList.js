@@ -24,7 +24,6 @@ function CompaniesList({ handleSelectedCompany }) {
           email: "",
         })
       )
-      .catch((error) => console.log(error));
   };
 
   return (
@@ -48,9 +47,9 @@ function CompaniesList({ handleSelectedCompany }) {
               <td>{company.id}</td>
               <td>{company.name}</td>
               <td>{company.address}</td>
-              <td>{company.phone}</td>
+              <td>{company.phoneNumber}</td>
               <td>{company.email}</td>
-              <td className="d-flex justify-content-center">
+              <td className="text-center">
                 <img
                   src={removeIcon}
                   width="30px"

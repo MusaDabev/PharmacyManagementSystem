@@ -17,7 +17,6 @@ function EmployeesList({ handleSelectedEmployee }) {
       .delete(`http://localhost:8080/users/${id}`)
       .then(() => dispatch(fetchEmployees()))
       .then(() => handleSelectedEmployee({}))
-      .catch((error) => console.log(error));
   };
 
   return (
@@ -46,7 +45,7 @@ function EmployeesList({ handleSelectedEmployee }) {
               <td>{employee.lastName}</td>
               <td>{employee.email}</td>
               <td>{employee.position}</td>
-              <td className="d-flex justify-content-center">
+              <td className="text-center">
                 <img
                   src={removeEmployeeIcon}
                   width="30px"
