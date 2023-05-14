@@ -156,12 +156,20 @@ function SideBar() {
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="nav-link px-0">
+                    <Link to="/medicine-forms" className="nav-link px-0">
                       {" "}
                       <span className="d-none d-sm-inline">
-                        Управление на лекарства
+                        Лекарсвени форми
                       </span>{" "}
-                    </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/medicine-categories" className="nav-link px-0">
+                      {" "}
+                      <span className="d-none d-sm-inline">
+                        Категории лекарства
+                      </span>{" "}
+                    </Link>
                   </li>
                   <li>
                     <Link
@@ -257,7 +265,7 @@ function SideBar() {
                 </ul>
               </li>
               <li className="mb-2">
-                <Link to={"/stock"} className="text-decoration-none">
+                <Link to={"/medicines-in-stock"} className="text-decoration-none">
                   <AiOutlineStock size={"1.5rem"} />{" "}
                   <span className="ms-1 d-none d-sm-inline">Наличност</span>{" "}
                 </Link>
