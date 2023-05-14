@@ -19,6 +19,9 @@ import ManageSuppliers from "./Pages/ManageSuppliers/ManageSuppliers";
 import ManageInvoices from "./Pages/Invoices/ManageInvoices";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminProtectedRoute from "./components/AdminProtectedRoute";
+import ImportMedicines from "./Pages/Medicine/ImportMedicines";
+import MedicineForms from "./Pages/Medicine/MedicineForms";
+import MedicineCategories from "./Pages/Medicine/MedicineCategories";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -71,6 +74,30 @@ function App() {
           element={
             <ProtectedRoute>
               <AddMedicine />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/medicine-forms"
+          element={
+            <ProtectedRoute>
+              <MedicineForms />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/medicine-categories"
+          element={
+            <ProtectedRoute>
+              <MedicineCategories />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/import-medicines"
+          element={
+            <ProtectedRoute>
+              <ImportMedicines />
             </ProtectedRoute>
           }
         />
@@ -144,7 +171,7 @@ function App() {
           path="/medicines-in-stock"
           element={
             <ProtectedRoute>
-              <MedicinesInStock medicines={jsonData} />
+              <MedicinesInStock />
             </ProtectedRoute>
           }
         />
