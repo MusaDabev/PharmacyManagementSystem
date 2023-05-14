@@ -6,9 +6,11 @@ import axios from "axios";
 function TodayReport() {
   const [invoices, setInvoices] = useState();
 
-  const todayIncome = invoices.reduce((accumulator, currentItem) => {
-    return accumulator + currentItem.amount;
-  }, 0);
+  const todayIncome =
+    invoices &&
+    invoices.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.amount;
+    }, 0);
 
   useEffect(() => {
     axios
@@ -19,17 +21,25 @@ function TodayReport() {
   return (
     <div className="d-flex">
       <SideBar />
-      <div className="d-flex align-items-center flex-column p-3">
+      <div className="w-100 p-3">
         <Stock />
-        <div>Приходи за днес: {todayIncome} лв.</div>
+        <div className="w-100 mx-auto">
+          <div className="text-center">Приходи за днес: {todayIncome} лв.</div>
+          <div className="text-end">
+            <button className="btn btn-primary">Изпрати отчет</button>
+          </div>
+        </div>
+        <hr />
         <h2>Фактури</h2>
         <div>
           <table className="table table-striped">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Лекарства</th>
-                <th scope="col">Сума</th>
+                <th>#</th>
+                <th>Номер на фактура</th>
+                <th>Клиент</th>
+                <th>Сума</th>
+                <th>Дата</th>
               </tr>
             </thead>
             <tbody>
@@ -37,8 +47,10 @@ function TodayReport() {
                 invoices.map((invoice) => (
                   <tr key={invoice.id}>
                     <td>{invoice.id}</td>
-                    <td>Лекарства....</td>
+                    <td>{invoice.id + 56825}</td>
+                    <td>{"Walking costumer"}</td>
                     <td>{invoice.amount}</td>
+                    <td>{invoice.invoiceDate}</td>
                   </tr>
                 ))}
             </tbody>

@@ -12,7 +12,7 @@ function SearchResultsTable({
           <th scope="col">Генерично лекарство</th>
           <th scope="col">Търговско име</th>
           <th scope="col">Цена</th>
-          <th scope="col">Форма</th>
+          <th scope="col">Милиграми</th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,7 @@ function SearchResultsTable({
               <td>{result.genericName}</td>
               <td>{result.name}</td>
               <td>{result.price}</td>
-              <td>{result.form}</td>
+              <td className="text-center">{result.milligrams}</td>
             </tr>
           ))}
           {/* {searchResult.length === 0 &&
