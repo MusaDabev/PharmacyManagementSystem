@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UpdateEmployeeForm from "../../../components/Employee/UpdateEmployeeForm";
 import EmployeesList from "../../../components/EmployeesList/EmployeesList";
+import SideBar from "../../../components/SideBar/SideBar";
 
 function ManageEmployees() {
   const [selectedEmployee, setSelectedEmployee] = useState({});
@@ -10,6 +11,8 @@ function ManageEmployees() {
   };
   return (
     <>
+      <div className="d-flex">
+      <SideBar />
       <div className="container">
         <div className="row">
           <div className="col">
@@ -20,6 +23,8 @@ function ManageEmployees() {
           </div>
         </div>
       </div>
+      </div>
+     
     </>
   );
 }

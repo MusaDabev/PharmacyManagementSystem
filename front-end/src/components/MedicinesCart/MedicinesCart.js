@@ -106,6 +106,7 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
           ))}
         </tbody>
       </table>
+      <div className="text-center">Общо: {totalPrice} лв.</div>
       <div>
         <button
           disabled={cartItems.length === 0}

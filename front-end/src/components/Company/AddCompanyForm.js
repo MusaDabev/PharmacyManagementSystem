@@ -30,6 +30,7 @@ function AddCompanyForm() {
         setErrorMsg(true);
       }
     } catch (error) {
+      setErrorMsg(true);
       console.error(error);
     }
   };
@@ -42,8 +43,9 @@ function AddCompanyForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {successMsg && (
+    <>
+    <div className="mx-auto" style={{width: "fit-content"}}>
+    {successMsg && (
         <div
           className="alert alert-success alert-dismissible fade show"
           role="alert"
@@ -60,7 +62,7 @@ function AddCompanyForm() {
       )}
       {errorMsg && (
         <div
-          className="alert alert-success alert-dismissible fade show"
+          className="alert alert-danger alert-dismissible fade show"
           role="alert"
         >
           Грешка при добавяне на компанията!
@@ -73,58 +75,61 @@ function AddCompanyForm() {
           ></button>
         </div>
       )}
-      <div className="form-group">
-        <label htmlFor="name">Име:</label>
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          name="name"
-          value={formState.name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="address">Адрес:</label>
-        <input
-          type="text"
-          className="form-control"
-          id="address"
-          name="address"
-          value={formState.address}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="phoneNumber">Тел. номер:</label>
-        <input
-          type="tel"
-          className="form-control"
-          id="phoneNumber"
-          name="phoneNumber"
-          value={formState.phoneNumber}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="email">Имейл:</label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          name="email"
-          value={formState.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary mt-2">
-        Добави компания
-      </button>
-    </form>
+    </div>
+      <form onSubmit={handleSubmit} className="d-flex justify-content-center">
+        <div className="form-group ms-1">
+          <label htmlFor="name">Име:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            name="name"
+            value={formState.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group ms-2">
+          <label htmlFor="address">Адрес:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="address"
+            name="address"
+            value={formState.address}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group ms-2">
+          <label htmlFor="phoneNumber">Тел. номер:</label>
+          <input
+            type="tel"
+            className="form-control"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={formState.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group ms-2">
+          <label htmlFor="email">Имейл:</label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            name="email"
+            value={formState.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary mt-3 ms-2" >
+          Добави компания
+        </button>
+      </form>
+    </>
   );
 }
 

@@ -27,6 +27,7 @@ const AddSupplierForm = () => {
       }
     } catch (error) {
       console.error("Failed to add supplier", error);
+      setErrorMsg(true);
     }
   }
 
@@ -50,7 +51,7 @@ const AddSupplierForm = () => {
       )}
       {errorMsg && (
         <div
-          className="alert alert-success alert-dismissible fade show"
+          className="alert alert-danger alert-dismissible fade show"
           role="alert"
         >
           Доставчикът не може да бъде добавен!

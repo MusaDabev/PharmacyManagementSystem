@@ -8,9 +8,9 @@ function AddEmployee() {
     <>
       <div className="d-flex">
         <SideBar />
-        <div className="w-100 d-flex flex-column align-items-center mt-2">
-          <img src={addEmployeeImg}></img>
+        <div className="w-100 d-flex flex-column m-2" style={{backgroundColor: "#89cde1"}}>
           <AddEmployeeForm />
+          <img src={addEmployeeImg} width="80%" className="ms-auto"></img>
         </div>
       </div>
     </>

@@ -30,10 +30,7 @@ const UpdateSupplierForm = ({ supplier }) => {
       email: email,
       phone: phone,
     };
-    axios
-      .post("http://localhost:8080/suppliers", supplier)
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log(error));
+    axios.post("http://localhost:8080/suppliers", supplier).then();
   };
 
   return (
@@ -73,6 +70,7 @@ const UpdateSupplierForm = ({ supplier }) => {
       </div>
       <button
         type="submit"
+        disabled={Object.keys(supplier).length === 0}
         className="btn btn-primary mt-1"
         onClick={handleUpdateSupplier}
       >

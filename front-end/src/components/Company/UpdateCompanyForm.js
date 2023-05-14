@@ -31,7 +31,7 @@ function UpdateCompanyForm({ selectedCompany }) {
   };
 
   return (
-    <form className={`${styles.form} p-3`} onSubmit={handleSubmit}>
+    <form className={`${styles.form} p-3 mt-3`} onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="name">Име:</label>
         <input
@@ -80,7 +80,7 @@ function UpdateCompanyForm({ selectedCompany }) {
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary mt-2">
+      <button type="submit" className="btn btn-primary mt-2" disabled={Object.keys(selectedCompany).length === 0}>
         Обнови компания
       </button>
     </form>

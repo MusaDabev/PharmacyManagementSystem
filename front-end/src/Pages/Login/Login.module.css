@@ -1,0 +1,10 @@
+.loginContainer {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 57%, rgba(57,144,243,1) 100%);
+    height: calc(100% - 88px);
+}
+
+body > div {
+    margin: 0;
+    height: 100vh;
+}
