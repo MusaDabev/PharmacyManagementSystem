@@ -4,7 +4,7 @@ import { addStock } from "../../redux/slices/stockSlice";
 import axios from "axios";
 import { emptyCart } from "../../redux/slices/cartSlice";
 
-function MedicinesCart({ setInvoices, setSelectedMedicine }) {
+function MedicinesCart({ setInvoices, setSelectedMedicine, costumer }) {
   const [successMsg, setSuccessMsg] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
   const cartItems = useSelector((state) => state.cart);
@@ -25,6 +25,8 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
     return sum + item.price * item.units;
   }, 0);
 
+  let invoiceNumber = Math.floor(Math.random() * 10000000000);
+
   const handleSellMedicine = (e) => {
     e.preventDefault();
     setInvoices();
@@ -40,8 +42,9 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
   async function saveInvoice() {
     const response = await axios.post("http://localhost:8080/invoices", {
       amount: totalPrice,
+      invoiceNumber,
+      costumer,
       invoiceDate: localDate,
-      // items: [...cartItems],
     });
 
     if (response.status === 200) {
@@ -89,9 +92,9 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
           <tr>
             <th scope="col">Генерично лекарство</th>
             <th scope="col">Търговско име</th>
-            <th scope="col">Цена</th>
-            <th scope="col">Форма</th>
             <th scope="col">Брой</th>
+            <th scope="col">Цена за брой</th>
+            <th scope="col">Обща цена</th>
           </tr>
         </thead>
         <tbody>
@@ -99,9 +102,10 @@ function MedicinesCart({ setInvoices, setSelectedMedicine }) {
             <tr key={item.id}>
               <td>{item.genericName}</td>
               <td>{item.name}</td>
-              <td>{item.price}</td>
-              <td>{item.form}</td>
               <td>{item.units}</td>
+              <td>{item.price}</td>
+              <td>{item.units * item.price}</td>
+
             </tr>
           ))}
         </tbody>
