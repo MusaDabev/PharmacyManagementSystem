@@ -42,16 +42,27 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public User createUser(@RequestBody User user) {
+    public User createUser(@RequestBody UserDto userDto) {
 
-        String encryptedPassword = user.getPassword();
+        String encryptedPassword = userDto.getPassword();
+        User user = new User();
 
         try {
-            encryptedPassword = hashPassword(user.getPassword());
+            encryptedPassword = hashPassword(userDto.getPassword());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+
+        Role foundRole = roleRepository.findById(userDto.getRoleId()).orElse(null);
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setPosition(userDto.getPosition());
+        user.setGender(userDto.getGender());
+        user.setDateOfBirth(userDto.getDateOfBirth());
+        user.setEmail(userDto.getEmail());
         user.setPassword(encryptedPassword);
+        user.setRole(foundRole);
+
         return userRepository.save(user);
     }
 
@@ -87,7 +98,7 @@ public class UserController {
             userDto.setPosition(authenticatedUser.getPosition());
             userDto.setFirstName(authenticatedUser.getFirstName());
             userDto.setLastName(authenticatedUser.getLastName());
-            userDto.setRole(role.getName());
+            userDto.setRoleName(role.getName());
             return ResponseEntity.ok(userDto);
         } else {
             throw new UnauthorizedException("Invalid email or password");
