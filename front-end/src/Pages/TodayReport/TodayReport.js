@@ -24,7 +24,7 @@ function TodayReport() {
       <div className="w-100 p-3">
         <Stock />
         <div className="w-100 mx-auto">
-          <div className="text-center">Приходи за днес: {todayIncome} лв.</div>
+          <div className="text-center">Приходи за днес: {todayIncome && todayIncome.toFixed(2)} лв.</div>
           <div className="text-end">
             <button className="btn btn-primary">Изпрати отчет</button>
           </div>
@@ -32,7 +32,7 @@ function TodayReport() {
         <hr />
         <h2>Фактури</h2>
         <div>
-          <table className="table table-striped">
+          <table className="table table-striped table-bordered">
             <thead>
               <tr>
                 <th>#</th>
@@ -47,8 +47,8 @@ function TodayReport() {
                 invoices.map((invoice) => (
                   <tr key={invoice.id}>
                     <td>{invoice.id}</td>
-                    <td>{invoice.id + 56825}</td>
-                    <td>{"Walking costumer"}</td>
+                    <td>{invoice.invoiceNumber}</td>
+                    <td>{invoice.costumer}</td>
                     <td>{invoice.amount}</td>
                     <td>{invoice.invoiceDate}</td>
                   </tr>
