@@ -30,6 +30,7 @@ function SuppliersList({ handleSelectedSupplier }) {
             <th>Име</th>
             <th>Имейл</th>
             <th>Телефон</th>
+            <th>Уебсайт</th>
             <th>Премахни</th>
           </tr>
         </thead>
@@ -43,7 +44,8 @@ function SuppliersList({ handleSelectedSupplier }) {
               <td>{supplier.name}</td>
               <td>{supplier.email}</td>
               <td>{supplier.phone}</td>
-              <td className="d-flex justify-content-center">
+              <td><a href={supplier.website} target="_blank">{supplier.website}</a></td>
+              <td className="text-center">
                 <img
                   src={removeIcon}
                   width="30px"
