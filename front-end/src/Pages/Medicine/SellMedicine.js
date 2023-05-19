@@ -8,6 +8,7 @@ import { addItem, removeItem } from "../../redux/slices/cartSlice";
 function SellMedicine({ jsonData, setCartItems, setInvoices }) {
   const [selectedMedicine, setSelectedMedicine] = useState({});
   const [numberOfUnits, setNumberOfUnits] = useState(1);
+  const [costumer, setCostumer] = useState();
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
@@ -15,6 +16,10 @@ function SellMedicine({ jsonData, setCartItems, setInvoices }) {
   const handleSelectedMedicine = (medicine) => {
     setSelectedMedicine(medicine);
   };
+
+  const handleCostumerChange = (e) => {
+    setCostumer(e.target.value);
+  }
 
   const handleAddCartItem = (item) => {
     dispatch(addItem({ ...item, units: numberOfUnits }));
@@ -41,6 +46,7 @@ function SellMedicine({ jsonData, setCartItems, setInvoices }) {
               numberOfUnits={numberOfUnits}
               handleAddCartItem={handleAddCartItem}
               handleNumberOfUnitsChange={handleNumberOfUnitsChange}
+              handleCostumerChange={handleCostumerChange}
             />
           </div>
           <div className="row">
@@ -49,6 +55,7 @@ function SellMedicine({ jsonData, setCartItems, setInvoices }) {
               numberOfUnits={numberOfUnits}
               setInvoices={setInvoices}
               setSelectedMedicine={setSelectedMedicine}
+              costumer={costumer}
             />
           </div>
         </div>
