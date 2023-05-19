@@ -1,7 +1,6 @@
 package com.PMS.PharmacyManagementSystem.services;
 
 import com.PMS.PharmacyManagementSystem.models.Invoice;
-import com.PMS.PharmacyManagementSystem.models.InvoiceItem;
 import com.PMS.PharmacyManagementSystem.repository.InvoiceRepository;
 import org.springframework.stereotype.Service;
 
