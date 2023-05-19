@@ -15,6 +15,9 @@ public class UserDto {
     private String lastName;
     private String email;
     private String position;
+    private String gender;
+    private String dateOfBirth;
     private String password;
-    private String role;
+    private Long roleId;
+    private String roleName;
 }
