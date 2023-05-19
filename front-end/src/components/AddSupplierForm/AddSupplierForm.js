@@ -6,6 +6,7 @@ const AddSupplierForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [website, setWebsite] = useState("");
   const [successMsg, setSuccessMsg] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
 
@@ -16,12 +17,14 @@ const AddSupplierForm = () => {
         name,
         email,
         phone,
+        website
       });
       if (response.status === 200) {
         setSuccessMsg(true);
         setName("");
         setEmail("");
         setPhone("");
+        setWebsite("");
       } else {
         setErrorMsg(true);
       }
@@ -104,6 +107,19 @@ const AddSupplierForm = () => {
             id="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
+        <div className="ms-3">
+          <label htmlFor="website" className="form-label">
+            Уебсайт:
+          </label>
+          <input
+            type="text"
+            required
+            className="form-control"
+            id="website"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
           />
         </div>
         <div className="ms-3 mt-4 pt-2">
