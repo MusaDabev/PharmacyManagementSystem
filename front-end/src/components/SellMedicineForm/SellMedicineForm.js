@@ -6,6 +6,7 @@ function SellMedicineForm({
   handleAddCartItem,
   numberOfUnits,
   handleNumberOfUnitsChange,
+  handleCostumerChange
 }) {
   let totalPrice = medicine.price * numberOfUnits;
   return (
@@ -46,8 +47,31 @@ function SellMedicineForm({
                 placeholder={medicine.name}
               />
             </div>
+            <div className="mb-3">
+            <label htmlFor="costumer">Клиент:</label>
+              <select
+                id="costumer"
+                className="form-select mb-2"
+                onChange={handleCostumerChange}
+              >
+                <option value="">--Моля изберете клиент--</option>
+                <option value="нерегистриран клиент">Нерегистриран клиент</option>
+                <option value="регистриран клиент">Регистриран клиент</option>
+              </select>
+            </div>
           </div>
           <div className="col">
+          <div className="mb-3">
+              <label htmlFor="milligrams" className="form-label">
+                Милиграми
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="milligrams"
+                placeholder={medicine.milligrams}
+              />
+            </div>
             <div className="mb-3">
               <label htmlFor="pricePerUnit" className="form-label">
                 Цена за брой
