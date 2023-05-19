@@ -37,8 +37,8 @@ function InvoicesList() {
           {invoices.map((invoice) => (
             <tr key={invoice.id}>
               <td>{invoice.id}</td>
-              <td>{invoice.id + 56825}</td>
-              <td>{"Walking costumer"}</td>
+              <td>{invoice.invoiceNumber}</td>
+              <td>{invoice.costumer}</td>
               <td>{invoice.amount}</td>
               <td>{invoice.invoiceDate}</td>
               <td className="d-flex justify-content-center">
