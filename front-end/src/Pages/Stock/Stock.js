@@ -6,7 +6,9 @@ function Stock() {
   return (
     <div className="d-flex">
       <div>
-        <div className="ms-3  border border-primary rounded-pill p-2">Наличност: {stock.value}лв.</div>
+        <div className="ms-3  border border-primary rounded-pill p-2">
+          Наличност: {stock && stock.value.toFixed(2)}лв.
+        </div>
       </div>
     </div>
   );
