@@ -15,13 +15,16 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "amount")
+    @Column(nullable = false)
+    private Long invoiceNumber;
+
+    @Column(nullable = false)
+    private String costumer;
+
+    @Column(name = "amount", nullable = false)
     private BigDecimal amount;
 
-    @Column(name = "invoice_date")
+    @Column(name = "invoice_date", nullable = false)
     private LocalDate invoiceDate;
-
-//    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private String items;
 
 }
