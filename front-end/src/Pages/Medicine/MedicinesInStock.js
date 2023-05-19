@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "../../components/SearchBar/SearchBar.module.css";
+import EditIcon from "../../assets/pictures/icons/edit-svgrepo-com.svg";
+import RemoveIcon from "../../assets/pictures/icons/remove-bin-delete-trash-svgrepo-com.svg";
 
 function MedicinesInStock() {
   const [medicines, setMedicines] = useState();
@@ -36,7 +38,7 @@ function MedicinesInStock() {
         </div>
       </div>
       <hr />
-      <table className="table table-striped">
+      <table className="table table-striped table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -49,6 +51,7 @@ function MedicinesInStock() {
             <th scope="col">Цена</th>
             <th scope="col">Форма</th>
             <th scope="col">Краен срок на годност</th>
+            <th scope="col">Действия</th>
           </tr>
         </thead>
         <tbody>
@@ -65,6 +68,14 @@ function MedicinesInStock() {
                 <td>{medicine.price}</td>
                 <td>{medicine.form}</td>
                 <td>{medicine.expireDate}</td>
+                <td className="d-flex">
+                  <div>
+                    <img role="button" src={EditIcon} width="30px"></img>
+                  </div>
+                  <div className="ms-3">
+                    <img role="button" src={RemoveIcon} width="30px"></img>
+                  </div>
+                </td>
               </tr>
             ))}
         </tbody>

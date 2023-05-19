@@ -5,11 +5,11 @@ import RemoveIcon from "../../assets/pictures/icons/remove-bin-delete-trash-svgr
 
 function MedicineFormsTable({ forms }) {
   return (
-    <>
+    <div className="mt-4">
       <div className={styles.medicineFormTitle}>
         Управление на лекарствени форми
       </div>
-      <table class="table">
+      <table className="table table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -35,7 +35,7 @@ function MedicineFormsTable({ forms }) {
             ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 

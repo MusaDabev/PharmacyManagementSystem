@@ -43,7 +43,11 @@ function Login() {
   return (
     <div className={` ${styles.loginContainer}`}>
       <div className="d-flex justify-content-center align-items-end mt-2 ms-4 me-4">
-        <img src={loginLogo} className="rounded mx-auto d-block w-50 me-1" alt="logo"></img>
+        <img
+          src={loginLogo}
+          className="rounded mx-auto d-block w-50 me-1"
+          alt="logo"
+        ></img>
         <div className="col-md-6">
           <div className="card">
             <div
@@ -53,7 +57,7 @@ function Login() {
               <h1>PharmaRx</h1>
             </div>
             <div className="card-body">
-              <form onSubmit={handleLogin}>
+              <form className="d-flex flex-column" onSubmit={handleLogin}>
                 <div className="form-group">
                   <label htmlFor="username">Имейл:</label>
                   <input
@@ -74,13 +78,15 @@ function Login() {
                     onChange={handlePasswordChange}
                   />
                 </div>
-                <button
-                  style={{ backgroundColor: "rgb(57, 144, 243)" }}
-                  type="submit"
-                  className="btn btn-primary btn-lg mt-2"
-                >
-                  Вход
-                </button>
+                <div>
+                  <button
+                    style={{ backgroundColor: "rgb(57, 144, 243)" }}
+                    type="submit"
+                    className="btn btn-primary btn-lg mt-2"
+                  >
+                    Вход
+                  </button>
+                </div>
               </form>
             </div>
           </div>
