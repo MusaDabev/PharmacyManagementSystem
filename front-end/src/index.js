@@ -19,7 +19,6 @@ root.render(
           <App />
         </InvoiceBtnContextProvider>
       </Provider>
-      ,
     </BrowserRouter>
   </React.StrictMode>
 );
