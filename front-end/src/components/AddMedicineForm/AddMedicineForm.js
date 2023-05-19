@@ -75,7 +75,10 @@ function AddMedicineForm() {
       purchaseMethod,
     };
     try {
-      const response = await axios.post("http://localhost:8080/medicines", newMedicine);
+      const response = await axios.post(
+        "http://localhost:8080/medicines/add",
+        newMedicine
+      );
       if (response.status === 200) {
         setName("");
         setGenericName("");
@@ -95,15 +98,11 @@ function AddMedicineForm() {
     }
   }
 
-  function handleSubmit() {
-    return null;
-  }
-
   return (
     <>
       <h4 className="ms-2">Добави лекарство</h4>
       <hr />
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form}>
         <div className="w-100">
           <label className="form-label">
             Име на лекарството:
@@ -112,6 +111,7 @@ function AddMedicineForm() {
               value={name}
               onChange={handleMedicineNameChange}
               className={`${styles.input} form-control`}
+              required
             />
           </label>
           <br />
@@ -122,6 +122,7 @@ function AddMedicineForm() {
               value={genericName}
               onChange={handleGenericNameChange}
               className={`${styles.input} form-control`}
+              required
             />
           </label>
           <br />
@@ -132,6 +133,7 @@ function AddMedicineForm() {
               value={quantity}
               onChange={handleQuantityChange}
               className={`${styles.input} form-control`}
+              required
             />
           </label>
           <br />
@@ -142,6 +144,7 @@ function AddMedicineForm() {
               value={milligrams}
               onChange={handleMilligramsChange}
               className={`${styles.input} form-control`}
+              required
             />
           </label>
           <br />
@@ -152,6 +155,7 @@ function AddMedicineForm() {
               value={companyName}
               onChange={handleCompanyNameChange}
               className={`${styles.input} form-control`}
+              required
             />
           </label>
         </div>
@@ -163,43 +167,44 @@ function AddMedicineForm() {
               className="form-select mb-2"
               value={category}
               onChange={handleMedicineCategoryChange}
+              required
             >
               <option value="">
                 --Моля изберете категория на лекарството--
               </option>
-              <option value="xраносмилателна система и метаболизъм">
+              <option value="Храносмилателна система и метаболизъм">
                 Храносмилателна система и метаболизъм
               </option>
-              <option value="кръв и кръвотворни органи">
+              <option value="Кръв и кръвотворни органи">
                 Кръв и кръвотворни органи
               </option>
-              <option value="сърдечно-съдова система">
+              <option value="Сърдечно-съдова система">
                 Сърдечно-съдова система
               </option>
-              <option value="дерматологични средства">
+              <option value="Дерматологични средства">
                 Дерматологични средства
               </option>
-              <option value="пикочо-полова система и полови хормони">
+              <option value="Пикочо-полова система и полови хормони">
                 Пикочо-полова система и полови хормони
               </option>
-              <option value="хормонални препарати за системно приложение, с изключение на полови хормони и инсулини">
+              <option value="Хормонални препарати за системно приложение, с изключение на полови хормони и инсулини">
                 Хормонални препарати за системно приложение, с изключение на
                 полови хормони и инсулини
               </option>
-              <option value="антиинфекциозни средства за системно приложение">
+              <option value="Антиинфекциозни средства за системно приложение">
                 Антиинфекциозни средства за системно приложение
               </option>
-              <option value="антинеопластични и имуномодулиращи средства">
+              <option value="Антинеопластични и имуномодулиращи средства">
                 Антинеопластични и имуномодулиращи средства
               </option>
-              <option value="мускулно-скелетна система">
+              <option value="Мускулно-скелетна система">
                 Мускулно-скелетна система
               </option>
-              <option value="антипаразитни продукти, инсектициди и репеленти">
+              <option value="Антипаразитни продукти, инсектициди и репеленти">
                 Антипаразитни продукти, инсектициди и репеленти
               </option>
-              <option value="дихателна система">Дихателна система</option>
-              <option value="сензорни органи">Сензорни органи</option>
+              <option value="Дихателна система">Дихателна система</option>
+              <option value="Сензорни органи">Сензорни органи</option>
               <option value="Разни">Разни</option>
             </select>
           </div>
@@ -210,6 +215,7 @@ function AddMedicineForm() {
               value={price}
               onChange={handlePriceChange}
               className={`${styles.input} form-control`}
+              required
             />
           </label>
           <br />
@@ -220,6 +226,7 @@ function AddMedicineForm() {
               className="form-select mb-2"
               value={purchaseMethod}
               onChange={handlePurchaseMethodChange}
+              required
             >
               <option value="">--Моля изберете метод на продажба--</option>
               <option value="с рецепта">С рецепта</option>
@@ -233,24 +240,25 @@ function AddMedicineForm() {
               className="form-select mb-2"
               value={form}
               onChange={handleFormChange}
+              required
             >
               <option value="">--Моля изберете форма--</option>
-              <option value="таблетки">Таблетки</option>
-              <option value="капсули">Капсули</option>
-              <option value="ефервесцентни таблетки">
+              <option value="Таблетки">Таблетки</option>
+              <option value="Капсули">Капсули</option>
+              <option value="Ефервесцентни таблетки">
                 Ефервесцентни таблетки
               </option>
-              <option value="разтвори">Разтвори</option>
-              <option value="инжекционни разтвори">Инжекционни разтвори</option>
-              <option value="кремове и мази">Кремове и мази</option>
-              <option value="пластир">Пластир</option>
-              <option value="капки">Капки</option>
-              <option value="сиропи">Сиропи</option>
-              <option value="гранули">Гранули</option>
-              <option value="емулсия">Емулсия</option>
-              <option value="суспензия">Суспензия</option>
-              <option value="тинктура">Тинктура</option>
-              <option value="пяна">Пяна</option>
+              <option value="Разтвори">Разтвори</option>
+              <option value="Инжекционни разтвори">Инжекционни разтвори</option>
+              <option value="Кремове и мази">Кремове и мази</option>
+              <option value="Пластир">Пластир</option>
+              <option value="Капки">Капки</option>
+              <option value="Сиропи">Сиропи</option>
+              <option value="Гранули">Гранули</option>
+              <option value="Емулсия">Емулсия</option>
+              <option value="Суспензия">Суспензия</option>
+              <option value="Тинктура">Тинктура</option>
+              <option value="Пяна">Пяна</option>
             </select>
           </div>
           <div className="me-1">
@@ -261,12 +269,14 @@ function AddMedicineForm() {
               className="form-control"
               type="date"
               onChange={handleExpireDateChange}
+              required
             />
           </div>
-          <div className="ms-auto" style={{width: "fit-content"}}>
+          <div className="ms-auto" style={{ width: "fit-content" }}>
             <button
               type="submit"
               className={`${styles.button}  btn btn-primary mt-2`}
+              onClick={handleSubmit}
             >
               Добави лекарство
             </button>
