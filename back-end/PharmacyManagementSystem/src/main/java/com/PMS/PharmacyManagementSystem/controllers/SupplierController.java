@@ -1,5 +1,7 @@
 package com.PMS.PharmacyManagementSystem.controllers;
 
+import com.PMS.PharmacyManagementSystem.exceptions.ResourceNotFoundException;
+import com.PMS.PharmacyManagementSystem.models.Company;
 import com.PMS.PharmacyManagementSystem.models.Supplier;
 import com.PMS.PharmacyManagementSystem.services.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,13 @@ public class SupplierController {
     public ResponseEntity<List<Supplier>> getAllSuppliers() {
         List<Supplier> suppliers = supplierService.getAllSuppliers();
         return ResponseEntity.ok().body(suppliers);
+    }
+
+    @PutMapping("/suppliers/{id}")
+    public ResponseEntity<Supplier> updateSupplier(@PathVariable(value = "id") Long supplierId,
+                                                 @RequestBody Supplier supplierDetails) throws ResourceNotFoundException {
+        Supplier updatedSupplier = supplierService.updateSupplier(supplierId, supplierDetails);
+        return ResponseEntity.ok(updatedSupplier);
     }
 
     @DeleteMapping("/suppliers/{id}")
