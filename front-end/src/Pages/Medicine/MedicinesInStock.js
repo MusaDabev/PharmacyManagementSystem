@@ -7,11 +7,21 @@ import RemoveIcon from "../../assets/pictures/icons/remove-bin-delete-trash-svgr
 function MedicinesInStock() {
   const [medicines, setMedicines] = useState();
 
-  useEffect(() => {
+  function fetchMedicines() {
     axios
       .get("http://localhost:8080/medicines")
       .then((response) => setMedicines(response.data));
-  });
+  }
+  function deleteMedicine(id) {
+    axios
+      .delete(`http://localhost:8080/medicines/${id}`)
+      .then(() => fetchMedicines());
+  }
+
+  useEffect(() => {
+    fetchMedicines();
+  }, []);
+
   return (
     <div className="p-3">
       <div className="h4 d-flex">
