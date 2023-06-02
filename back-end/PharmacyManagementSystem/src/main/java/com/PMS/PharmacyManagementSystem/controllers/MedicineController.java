@@ -1,9 +1,6 @@
 package com.PMS.PharmacyManagementSystem.controllers;
 
-import com.PMS.PharmacyManagementSystem.dto.MedicineCategoryResponseDto;
-import com.PMS.PharmacyManagementSystem.dto.MedicineDto;
-import com.PMS.PharmacyManagementSystem.dto.MedicineFormResponseDto;
-import com.PMS.PharmacyManagementSystem.dto.MedicineResponseDto;
+import com.PMS.PharmacyManagementSystem.dto.*;
 import com.PMS.PharmacyManagementSystem.models.Medicine;
 import com.PMS.PharmacyManagementSystem.models.MedicineCategory;
 import com.PMS.PharmacyManagementSystem.models.MedicineForm;
@@ -49,6 +46,7 @@ public class MedicineController {
         List<MedicineResponseDto> medicineDtos = new ArrayList<>();
         for (Medicine medicine : medicines) {
             MedicineResponseDto medicineDto = new MedicineResponseDto();
+            medicineDto.setId(medicine.getId());
             medicineDto.setName(medicine.getName());
             medicineDto.setGenericName(medicine.getGenericName());
             medicineDto.setQuantity(medicine.getQuantity());
@@ -74,9 +72,9 @@ public class MedicineController {
         }
     }
 
-    @PutMapping("/medicine/sell/{id}")
-    ResponseEntity<HttpStatus> sellMedicine(@PathVariable("id") Long id, @RequestBody int quantity) {
-        medicineService.sellMedicine(id, quantity);
+    @PutMapping("/medicine/sell")
+    ResponseEntity<HttpStatus> sellMedicine(@RequestBody List<MedicineRequestDto> medicines) {
+        medicineService.sellMedicine(medicines);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
