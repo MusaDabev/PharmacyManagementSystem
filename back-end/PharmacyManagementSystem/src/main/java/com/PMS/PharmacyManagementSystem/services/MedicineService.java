@@ -1,6 +1,7 @@
 package com.PMS.PharmacyManagementSystem.services;
 
 import com.PMS.PharmacyManagementSystem.dto.MedicineDto;
+import com.PMS.PharmacyManagementSystem.dto.MedicineRequestDto;
 import com.PMS.PharmacyManagementSystem.exceptions.ResourceNotFoundException;
 import com.PMS.PharmacyManagementSystem.models.*;
 import com.PMS.PharmacyManagementSystem.repository.CompanyRepository;
@@ -25,6 +26,8 @@ public class MedicineService {
     @Autowired
     private CompanyRepository companyRepository;
     @Autowired
+    private CompanyService companyService;
+    @Autowired
     private MedicineFormRepository medicineFormRepository;
     @Autowired
     private MedicineCategoryRepository medicineCategoryRepository;
@@ -38,23 +41,30 @@ public class MedicineService {
                 continue;
             }
 
-            String name = row.getCell(0).getStringCellValue();
-            String genericName = row.getCell(1).getStringCellValue();
+            String name = row.getCell(0).getStringCellValue().trim();
+            String genericName = row.getCell(1).getStringCellValue().trim();
             int quantity = (int) row.getCell(2).getNumericCellValue();
             int milligrams = (int) row.getCell(3).getNumericCellValue();
-           // String manufacturer = row.getCell(4).getStringCellValue();
+            String manufacturer = row.getCell(4).getStringCellValue().trim();
             double price = row.getCell(5).getNumericCellValue();
+            String purchaseMethod = row.getCell(6).getStringCellValue().trim();
+            String form = row.getCell(7).getStringCellValue().trim();
+            String category = row.getCell(8).getStringCellValue().trim();
+            String expireDate = row.getCell(9).getStringCellValue().trim();
 
+            MedicineDto medicineDto = new MedicineDto();
+            medicineDto.setName(name);
+            medicineDto.setGenericName(genericName);
+            medicineDto.setQuantity(quantity);
+            medicineDto.setMilligrams(milligrams);
+            medicineDto.setManufacturer(manufacturer);
+            medicineDto.setPrice(price);
+            medicineDto.setPurchaseMethod(purchaseMethod);
+            medicineDto.setForm(form);
+            medicineDto.setCategory(category);
+            medicineDto.setExpireDate(expireDate);
+            saveMedicine(medicineDto);
 
-            Medicine medicine = new Medicine();
-            medicine.setName(name);
-            medicine.setGenericName(genericName);
-            medicine.setQuantity(quantity);
-            medicine.setMilligrams(milligrams);
-         //   medicine.setManufacturer(manufacturer);
-            medicine.setPrice(price);
-
-            medicineRepository.save(medicine);
         }
         workbook.close();
     }
@@ -88,11 +98,15 @@ public class MedicineService {
         medicineRepository.save(medicine);
     }
 
-    public Medicine sellMedicine(Long id, int quantity) {
-        Medicine medicine = medicineRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Medicine", "Id", id));
+    public String sellMedicine(List<MedicineRequestDto> medicines) {
+        for (MedicineRequestDto medicine : medicines) {
+            Medicine foundMedicine = medicineRepository.findById(medicine.getId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Medicine", "Id", medicine.getId()));
 
-        medicine.setQuantity(medicine.getQuantity() - quantity);
-        return medicineRepository.save(medicine);
+            foundMedicine.setQuantity(medicine.getQuantity() - medicine.getUnits());
+            medicineRepository.save(foundMedicine);
+        }
+
+        return "Medicines updated successfully";
     }
 }
