@@ -35,9 +35,16 @@ function MedicinesCart({ setInvoices, setSelectedMedicine, costumer }) {
     // save invoice in database
     saveInvoice();
 
+    //update quantity in database
+    updateQuantity();
+
     // empty cart
     dispatch(emptyCart());
   };
+
+  function updateQuantity() {
+    axios.put("http://localhost:8080//medicine/sell", cartItems);
+  }
 
   async function saveInvoice() {
     const response = await axios.post("http://localhost:8080/invoices", {
@@ -105,7 +112,6 @@ function MedicinesCart({ setInvoices, setSelectedMedicine, costumer }) {
               <td>{item.units}</td>
               <td>{item.price}</td>
               <td>{item.units * item.price}</td>
-
             </tr>
           ))}
         </tbody>
