@@ -1,0 +1,10 @@
+.category {
+    width: 100%;
+    height: 150px;
+    border: 2px solid rgb(143, 188, 240);
+    border-radius: 2px;
+}
+
+.categoryLink {
+    font-weight: 500;
+}
