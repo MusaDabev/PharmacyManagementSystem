@@ -14,12 +14,12 @@ function ImportMedicines() {
     formData.append("file", selectedFile);
 
     axios
-      .post("http://localhost:8080/medicines", formData)
+      .post("http://localhost:8080/medicines/import", formData)
       .then((response) => {
       })
       .catch((error) => {
       });
-  };
+};
 
   return (
     <div className="d-flex">
