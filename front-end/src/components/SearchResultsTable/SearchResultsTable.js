@@ -13,6 +13,7 @@ function SearchResultsTable({
           <th scope="col">Търговско име</th>
           <th scope="col">Цена</th>
           <th scope="col">Милиграми</th>
+          <th scope="col">Наличност</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@ function SearchResultsTable({
               <td>{result.name}</td>
               <td>{result.price}</td>
               <td className="text-center">{result.milligrams}</td>
+              <td>{result.quantity}</td>
             </tr>
           ))}
           {/* {searchResult.length === 0 &&
