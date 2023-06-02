@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchResultsTable from "../SearchResultsTable/SearchResultsTable";
 import styles from "./SearchBar.module.css";
 
-function SearchBar({jsonData, handleSelectedMedicine }) {
+function SearchBar({medicines, handleSelectedMedicine }) {
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
@@ -13,7 +13,7 @@ function SearchBar({jsonData, handleSelectedMedicine }) {
   const handleSearchClick = (e) => {
     e.preventDefault();
     // Example: searching for a keyword in an array
-    const result = jsonData.filter((item) =>
+    const result = medicines.filter((item) =>
       item.name.toLowerCase().includes(searchValue.toLowerCase())
     );
     setSearchResult(result);
@@ -43,7 +43,7 @@ function SearchBar({jsonData, handleSelectedMedicine }) {
       <div className="mt-2">
         <SearchResultsTable
           searchResult={searchResult}
-          medicines={jsonData}
+          medicines={medicines}
           handleSelectedMedicine={handleSelectedMedicine}
         />
       </div>
