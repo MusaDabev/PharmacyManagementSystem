@@ -1,0 +1,12 @@
+.dangerCell {
+    background-color: red !important;
+}
+
+.warningCell {
+    background-color: #f0ad4e !important;
+}
+
+.expiredCell {
+    background-color: gray !important;
+    text-decoration: line-through;
+}

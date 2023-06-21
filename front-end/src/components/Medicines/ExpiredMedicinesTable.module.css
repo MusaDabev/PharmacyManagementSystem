@@ -1,0 +1,32 @@
+.legend {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.legend > li {
+    margin-right: 25px;
+}
+
+.warning {
+   color: orange;
+   font-weight: bold;
+}
+
+.danger {
+    color: red;
+    font-weight: bold;
+}
+
+.expired {
+    color: gray;
+    font-weight: bold;
+}
+
+.searchInput {
+    width: 200px !important;
+}

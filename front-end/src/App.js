@@ -22,6 +22,7 @@ import AdminProtectedRoute from "./components/AdminProtectedRoute";
 import ImportMedicines from "./Pages/Medicine/ImportMedicines";
 import MedicineForms from "./Pages/Medicine/MedicineForms";
 import MedicineCategories from "./Pages/Medicine/MedicineCategories";
+import ExpiredMedicines from "./Pages/ExpiredMedicines/ExpiredMedicines";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -98,6 +99,14 @@ function App() {
           element={
             <ProtectedRoute>
               <ImportMedicines />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/expired-medicines"
+          element={
+            <ProtectedRoute>
+              <ExpiredMedicines />
             </ProtectedRoute>
           }
         />

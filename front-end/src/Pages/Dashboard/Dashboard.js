@@ -20,7 +20,7 @@ function Dashboard() {
             <img src={SellIcon} width="50px" height="50px" className="mb-2" />
             <Link
               to={"/sell-medicine"}
-              className={`d-flex justify-content-end text-decoration-none ${styles.categoryLink}`}
+              className={`d-flex justify-content-end ${styles.categoryLink}`}
             >
               Продай лекарство
             </Link>
@@ -54,7 +54,7 @@ function Dashboard() {
             <div className="d-flex justify-content-end">
               {" "}
               <Link
-                className={`text-decoration-none ${styles.categoryLink}`}
+                className={`${styles.categoryLink}`}
                 to={"/add-medicine"}
               >
                 {" "}
@@ -73,7 +73,7 @@ function Dashboard() {
             />{" "}
             <div className="d-flex justify-content-end">
               <Link
-                className={`text-decoration-none ${styles.categoryLink}`}
+                className={`${styles.categoryLink}`}
                 to={"/add-employee"}
               >
                 {" "}
@@ -101,12 +101,12 @@ function Dashboard() {
           <div className={`p-3 ${styles.category}`}>
             {" "}
             <FcExpired className="mb-2" style={{ fontSize: "3rem" }} />
-            <div
+            <Link to="/expired-medicines"
               className={`d-flex justify-content-end ${styles.categoryLink}`}
             >
               {" "}
               Лекарства с изтекъл срок
-            </div>
+            </Link>
           </div>
         </div>
         <div className="col">
@@ -119,7 +119,7 @@ function Dashboard() {
             />
             <div className="d-flex justify-content-end">
               <Link
-                className={`text-decoration-none ${styles.categoryLink}`}
+                className={`${styles.categoryLink}`}
                 to={"/medicines-in-stock"}
               >
                 {" "}
@@ -133,7 +133,7 @@ function Dashboard() {
             <img src={ReportIcon} width="50px" height="50px" className="mb-2" />
             <Link
               to={"/stock"}
-              className={`d-flex justify-content-end text-decoration-none ${styles.categoryLink}`}
+              className={`d-flex justify-content-end ${styles.categoryLink}`}
             >
               Отчет
             </Link>
