@@ -22,7 +22,7 @@ function SideBar() {
     navigate("/login");
   };
   return (
-    <div className={styles.sideBarContainer}>
+    <div className={styles.sideBarContainer} id="sidebar-container">
       <div className="row w-100 h-100">
         <div className={`col ${styles.sideBar}`}>
           <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -36,14 +36,14 @@ function SideBar() {
               className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100"
               id="menu"
             >
-              <li>
+              <li className="me-auto">
                 <a
                   href="#submenu1"
                   data-bs-toggle="collapse"
                   className="nav-link px-0 align-middle"
                 >
                   <i className="fs-4 bi-speedometer2"></i>{" "}
-                  <span className="ms-1 d-none d-sm-inline">Табло</span>{" "}
+                  <span className="ms-1 d-sm-inline">Табло</span>{" "}
                 </a>
               </li>
               <li className="w-100">
@@ -54,7 +54,7 @@ function SideBar() {
                 >
                   <div>
                     <FaFileInvoiceDollar size={"1.5rem"} />
-                    <span className="ms-1 d-none d-sm-inline">Фактура</span>
+                    <span className="ms-1 d-sm-inline">Фактура</span>
                   </div>
                   <div className="ms-auto">
                     <span className="dropdown-toggle"></span>
@@ -68,13 +68,13 @@ function SideBar() {
                   <li className="w-100">
                     <Link to={""} className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">Нова фактура</span>
+                      <span className="d-sm-inline">Нова фактура</span>
                     </Link>
                   </li>
                   <li>
                     <Link to="/manage-invoices" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Управление на фактури
                       </span>{" "}
                     </Link>
@@ -89,7 +89,7 @@ function SideBar() {
                 >
                   <div>
                     <BsFillPersonPlusFill size={"1.5rem"} />{" "}
-                    <span className="ms-1 d-none d-sm-inline">Служител</span>
+                    <span className="ms-1 d-sm-inline">Служител</span>
                   </div>
                   <div className="ms-auto">
                     <span className="dropdown-toggle"></span>
@@ -103,7 +103,7 @@ function SideBar() {
                   <li className="w-100">
                     <a href="#" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         <Link
                           className="text-decoration-none"
                           to={"/add-employee"}
@@ -116,7 +116,7 @@ function SideBar() {
                   <li className="w-100">
                     <a href="#" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         <Link
                           className="text-decoration-none"
                           to={"/manage-employees"}
@@ -136,7 +136,7 @@ function SideBar() {
                 >
                   <div>
                     <CiPill size={"1.5rem"} />{" "}
-                    <span className="ms-1 d-none d-sm-inline">Лекарство</span>{" "}
+                    <span className="ms-1 d-sm-inline">Лекарство</span>{" "}
                   </div>
                   <div className="ms-auto">
                     <span className="dropdown-toggle"></span>
@@ -150,7 +150,7 @@ function SideBar() {
                   <li className="w-100">
                     <Link to="/add-medicine" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Добави лекарство
                       </span>{" "}
                     </Link>
@@ -158,7 +158,7 @@ function SideBar() {
                   <li>
                     <Link to="/medicine-forms" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Лекарсвени форми
                       </span>{" "}
                     </Link>
@@ -166,7 +166,7 @@ function SideBar() {
                   <li>
                     <Link to="/medicine-categories" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Категории лекарства
                       </span>{" "}
                     </Link>
@@ -177,7 +177,7 @@ function SideBar() {
                       className="nav-link px-0 text-decoration-none"
                     >
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Продай лекарство
                       </span>{" "}
                     </Link>
@@ -192,7 +192,7 @@ function SideBar() {
                 >
                   <div>
                     <CiDeliveryTruck className="fs-4 bi-grid"></CiDeliveryTruck>{" "}
-                    <span className="ms-1 d-none d-sm-inline">Доставчик</span>{" "}
+                    <span className="ms-1 d-sm-inline">Доставчик</span>{" "}
                   </div>
                   <div className="ms-auto">
                     <span className="dropdown-toggle"></span>
@@ -206,7 +206,7 @@ function SideBar() {
                   <li className="w-100">
                     <Link to="/add-supplier" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Добави доставчик
                       </span>{" "}
                     </Link>
@@ -214,7 +214,7 @@ function SideBar() {
                   <li className="w-100">
                     <Link to="/manage-suppliers" className="nav-link px-0">
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Управление на доставчици
                       </span>{" "}
                     </Link>
@@ -229,7 +229,7 @@ function SideBar() {
                 >
                   <div>
                     <IoBusinessOutline className="fs-4 bi-grid"></IoBusinessOutline>{" "}
-                    <span className="ms-1 d-none d-sm-inline">Компания</span>{" "}
+                    <span className="ms-1 d-sm-inline">Компания</span>{" "}
                   </div>
                   <div className="ms-auto">
                     <span className="dropdown-toggle"></span>
@@ -246,7 +246,7 @@ function SideBar() {
                       className="nav-link px-0 text-decoration-none"
                     >
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Добави компания
                       </span>{" "}
                     </Link>
@@ -257,30 +257,30 @@ function SideBar() {
                       className="nav-link px-0 text-decoration-none"
                     >
                       {" "}
-                      <span className="d-none d-sm-inline">
+                      <span className="d-sm-inline">
                         Упраление на компании
                       </span>{" "}
                     </Link>
                   </li>
                 </ul>
               </li>
-              <li className="mb-2">
+              <li className="mb-2 me-auto">
                 <Link to={"/medicines-in-stock"} className="text-decoration-none">
                   <AiOutlineStock size={"1.5rem"} />{" "}
-                  <span className="ms-1 d-none d-sm-inline">Наличност</span>{" "}
+                  <span className="ms-1 d-sm-inline">Наличност</span>{" "}
                 </Link>
               </li>
-              <li>
+              <li className="me-auto">
                 <Link to={"/discounts"} className="text-decoration-none">
                   <TbShoppingCartDiscount size={"1.5rem"} />{" "}
-                  <span className="ms-1 d-none d-sm-inline">Отстъпки</span>{" "}
+                  <span className="ms-1 d-sm-inline">Отстъпки</span>{" "}
                 </Link>
               </li>
               {Object.keys(user).length > 0 && (
-                <li className="mt-3">
+                <li className="mt-3 me-auto">
                   <button onClick={handleLogout} className={styles.button}>
                     <BiLogOut size={"1.5rem"} />{" "}
-                    <span className="ms-1 d-none d-sm-inline">Изход</span>{" "}
+                    <span className="ms-1 d-sm-inline">Изход</span>{" "}
                   </button>
                 </li>
               )}

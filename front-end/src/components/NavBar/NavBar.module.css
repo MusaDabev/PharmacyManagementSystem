@@ -1,3 +1,20 @@
 .navBar {
     background-color: rgb(57, 144, 243);
 }
+
+.burgerIcon {
+    color: white;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .welcomeText {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .burgerIcon {
+        display: none;
+    }
+}
